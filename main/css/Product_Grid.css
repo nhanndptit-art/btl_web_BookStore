@@ -1,0 +1,14 @@
+.container_pg {
+    display: grid;
+    grid-auto-columns: 230px;
+    grid-auto-rows: 250px;
+    grid-auto-flow: column;
+    gap: 1em;
+}
+.item_pg {
+    background-color: #80cbc4;
+    border: 2px solid #000000;
+    padding: 20px;
+    font-size: 30px;
+    text-align: justify;
+}
