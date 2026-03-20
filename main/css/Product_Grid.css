@@ -3,12 +3,135 @@
     grid-auto-columns: 230px;
     grid-auto-rows: 250px;
     grid-auto-flow: column;
-    gap: 1em;
+    gap: 20px;
+    margin: 0px 0px 20px 20px ;
+}
+.h5 {
+    font-size: 2rem;
+    font-style: italic;
+    text-align: start;
 }
 .item_pg {
-    background-color: #80cbc4;
-    border: 2px solid #000000;
+    background-color: rgb(128, 203, 196);
+    border: 2px solid rgb(0, 0, 0);
     padding: 20px;
-    font-size: 30px;
-    text-align: justify;
+    font-size: 20px;
+    
+}
+.product-grid {
+    display: block;
+}
+
+
+/* ----------------------------------
+   2. PRODUCT CARD (Từng box)
+   ---------------------------------- */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Khoảng cách giữa ảnh và nhóm text ở dưới */
+}
+
+/* Phần Ảnh */
+.card-image {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Giữ tỷ lệ khung hình cho ảnh sách (tuỳ chỉnh theo ý bạn) */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    border-radius: 16px; /* Bo góc như trong hình */
+    display: block;
+}
+
+/* Phần Content (Nhóm các dòng text) */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Khoảng cách dọc giữa Tiêu đề, Rating, Tác giả, Giá */
+}
+
+/* Tiêu đề */
+.card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1f1e1e;
+    line-height: 1.3;
+    text-decoration: none;
+    font-family:sans-serif ;
+    :hover{
+        color: rgb(193, 126, 2) ;
+    }
+}
+
+/* Phần Rating (Sao + Số) */
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa sao và số 5 */
+}
+
+.stars {
+     color: rgb(245, 158, 11); /* Màu vàng cam cho ngôi sao */
+    font-size: 14px;
+}
+
+.rating-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+/* Tác giả */
+.card-author {
+    margin: 0;
+    font-size: 14px;
+    color: rgb(156, 163, 175); /* Màu xám */
+}
+
+/* Giá tiền */
+.card-price {
+    margin: 0;
+    margin-top: 4px; /* Đẩy giá tiền cách xa tác giả thêm một chút nếu cần */
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(240, 82, 82); /* Màu đỏ cam như hình */
+}
+/* Container bọc ngoài cùng dùng Flexbox */
+.section-header {
+    display: flex;
+    align-items: center; /* Căn giữa các thành phần theo chiều dọc */
+    gap: 20px; /* Tạo khoảng cách đều giữa chữ, đường kẻ và nút */
+    width: 100%;
+    margin-bottom: 24px; /* Cách các box sản phẩm ở dưới một đoạn */
+}
+
+/* Style cho Tiêu đề */
+.title_Selling {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Reset margin mặc định của h3 */
+    font-size: 24px;
+    font-weight: bold;
+
+}
+
+/* Style cho Đường kẻ ngang (Điểm mấu chốt) */
+.divider-line {
+    flex-grow: 1; /* Phép thuật ở đây: Thuộc tính này ép đường kẻ tự động giãn ra chiếm hết toàn bộ không gian trống còn lại ở giữa */
+    height: 1px;
+    background-color: #E5E7EB; /* Màu xám nhạt */
+}
+
+/* Style cho Nút bấm */
+.btn-view-all {
+    background-color: #F85A5A; /* Màu đỏ cam */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px; /* Bo tròn tạo hình viên thuốc */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-view-all:hover {
+    background-color: #E04A4A; /* Đổi màu nhẹ khi hover */
 }
