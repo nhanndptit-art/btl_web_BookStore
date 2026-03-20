@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #f1f1f3;
+    background-color: #fdfdff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -17,44 +17,20 @@ body {
 .header {
     width: 100%;
     padding: 30px 0;
-}
-
-.content {
-    flex: 1;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0 60px 0;
-}
-
-.footer {
-    background-color: #1a1a1a;
+    background-color:#4b4d75;
     color: #ffffff;
-    text-align: center;
-    padding: 30px 0;
-    margin-top: auto;
 }
 
-.mock-content {
-    height: 800px;
-    border: 3px dashed #d1d1d6;
-    border-radius: 20px;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #888;
-    font-size: 20px;
-}
-
-.top-nav-container {
-    width: 80%;
-    margin: 0 auto; 
+.header-container {
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 250px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.main-nav {
+.nav {
     display: flex;
     background-color: #ffffff;
     padding: 10px 14px;
@@ -62,22 +38,25 @@ body {
     gap: 8px;
     flex: 1;
     justify-content: space-between;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    font-weight: 70;
+    color: #ffffff;
+}
 .nav-item {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #9ba0a6;
+    color: #000000;
     padding: 14px 20px;
     border-radius: 50px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-}
-
-.nav-item i {
-    font-size: 24px;
 }
 
 .nav-text {
@@ -89,12 +68,12 @@ body {
     white-space: nowrap;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.nav-item:hover,
 .nav-item.active {
     background-color: #000000;
     color: #ffffff;
     padding: 14px 24px 14px 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .nav-item.active .nav-text {
@@ -118,12 +97,20 @@ body {
 .search-input::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
-
-.nav-item.active.search-item .nav-text {
+.nav-item.search-item:hover,
+.nav-item.search-item:focus-within{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 14px 24px 14px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.nav-item.search-item:hover .nav-text,
+.nav-item.search-item:focus-within .nav-text {
     display: none;
 }
 
-.nav-item.active.search-item .search-input {
+.nav-item.search-item:hover .search-input,
+.nav-item.search-item:focus-within .search-input{
     width: 250px;
     opacity: 1;
     margin-left: 8px;
@@ -131,31 +118,23 @@ body {
 
 .cart-button {
     position: relative;
-    width: 68px;
-    height: 68px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    background-color: #ffffff;
+    background-color: transparent;
     border: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: #111111;
+    color: #ffffff;
     transition: transform 0.2s;
     flex-shrink: 0;
 }
 
-.cart-button:hover {
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-}
-
-.cart-button:active {
-    transform: scale(0.95);
-}
 
 .cart-button i {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .badge {
@@ -172,5 +151,36 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 2px solid #ffffff;
+}
+.main-nav-lower {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+}
+
+.footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: auto;
+}
+.wraper{
+    width: 80%;
+    margin: 20px 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+    padding: 10px 0;
+}
+.icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.icon:hover {
+    transform: translate(0, -5px);
 }
