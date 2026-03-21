@@ -16,6 +16,9 @@
     flex-direction: column;
     gap: 16px; 
     scroll-snap-align: start;
+    font-family: inherit;
+    user-select: none;
+    margin-bottom: 20px ;
 }
 
 .card-image {
@@ -95,7 +98,11 @@
     align-items: center;
     gap: 20px; 
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     margin-bottom: 24px;
+    padding: 0 20px; 
+    box-sizing: border-box;
 }
 
 .title_Selling {
@@ -103,6 +110,7 @@
     margin: 0; 
     font-size: 24px;
     font-weight: bold;
+    align-items: center;
 }
 
 .divider-line {
@@ -136,4 +144,42 @@
 .container_pg::-webkit-scrollbar-thumb {
     background: rgb(211, 191, 191);
     border-radius: 10px;
+}
+.card-image-wrapper {
+    position: relative; 
+    overflow: hidden;
+}
+
+.card-actions {
+    position: absolute;
+    bottom: 12px; 
+    right: 12px;  
+    display: flex;
+    gap: 8px; 
+    
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease; 
+}
+
+.card-image-wrapper:hover .card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; 
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: rgb(249, 134, 134);
 }
