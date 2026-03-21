@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Store Layout</title>
+    <title>Book Store</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/Product_Grid.css">
 </head>
 
 <body>
-
     <header class="header">
         <div class="header-container">
             <div class="logo">
@@ -22,27 +22,24 @@
                     <i class="ph-fill ph-house"></i>
                     <span class="nav-text">Home</span>
                 </a>
-                
                 <div class="nav-item search-item" data-icon="magnifying-glass">
                     <i class="ph ph-magnifying-glass"></i>
                     <span class="nav-text">Search</span>
                     <input type="text" class="search-input" placeholder="Tìm kiếm sách, tác giả...">
                 </div>
-                
                 <a href="#" class="nav-item" data-icon="heart">
                     <i class="ph ph-heart"></i>
                     <span class="nav-text">Favorites</span>
                 </a>
-                
                 <a href="#" class="nav-item" data-icon="bell">
                     <i class="ph ph-bell"></i>
                     <span class="nav-text">Notifications</span>
                 </a>
             </nav>
-
             <button class="cart-button">
-            <i class="ph ph-shopping-cart"></i>
-            <span class="badge">0</span> </button>
+                <i class="ph ph-shopping-cart"></i>
+                <span class="badge">0</span> 
+            </button>
         </div>
         <div class="header-container-lower">
             <nav class="main-nav-lower">
@@ -53,42 +50,172 @@
                 <a href="#" class="nav-item">Blog <i class="ph ph-caret-down"></i></a>
                 <a href="#" class="nav-item">Contact</a>
             </nav>
-
+        </div>
     </header>
 
     <main class="content">
         <h1>Chào mừng bạn đến với Tiệm Sách</h1>
-        <p>Đây là khu vực nội dung chính. Bạn sẽ thiết kế banner, các cuốn sách thịnh hành và danh mục ở khu vực này.</p>
         
-        <div class="mock-content">
-            Khu vực trưng bày sách...
+        <div class="section-header">
+            <h3 class="title_Selling">Bestselling books</h3>
+            <div class="divider-line"></div>
+            <button class="btn-view-all"><a class="custom-viewall" href="#">View All ></a></button>
+        </div>
+
+        <div class="container_pg">
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/9d/6c/ac/9d6cac20ee7c07a5396dcf47da3fa219.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 1</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/webp/1200x/90/f0/23/90f0237df1f04d1c9d7dcaa492646ec3.webp" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 2</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/10/5c/fa/105cfa4c39c37a359950bd945307f973.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 3</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/ce/13/55/ce1355adb16cb5c2d672f613eac2cf19.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 4</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/43/0d/6b/430d6b1fe0da487be5d6306a1479e30e.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 5</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/e7/6b/37/e76b37a78ae685bc02860ac2a22522f4.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 6</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>        
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/1200x/17/93/3e/17933eddd08ea28fead6c4ac6ec654ab.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 7</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/fb/cb/ca/fbcbca30edcb35a30964dcd62c6b4c0e.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 8</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>        
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="card-image-wrapper">
+                    <img src="https://i.pinimg.com/736x/31/5e/52/315e52651a44505550e19ca6f31510e0.jpg" alt="Sad Janet" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a class="card-title" href="#">Name off Book 9</a></h3>
+                    <div class="card-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span> <span class="rating-number">5</span>
+                    </div>
+                    <p class="card-author"> <a class="author-title" href="#">Author</a></p>        
+                    <p class="card-price">$Price</p>
+                </div>
+            </article>
         </div>
     </main>
 
     <footer class="footer">
         <p>© 2026 BookStore by PTITer</p>
-        <ul class ="wraper">
-            <li class = "icon facebook">
+        <ul class="wraper">
+            <li class="icon facebook">
                 <span class="tooltip"></span>
                 <span><i class="ph ph-facebook-logo"></i></span>
             </li>
-            <li class = "icon github">
-                <span class = "tooltip"></span>
+            <li class="icon github">
+                <span class="tooltip"></span>
                 <span><i class="ph ph-github-logo"></i></span>
             </li>
-            <li class = "icon instagram">
-                <span class = "tooltip"></span>
+            <li class="icon instagram">
+                <span class="tooltip"></span>
                 <span><i class="ph ph-instagram-logo"></i></span>
             </li>
-            <li class = "icon youtube">
-                <span class = "tooltip"></span>
+            <li class="icon youtube">
+                <span class="tooltip"></span>
                 <span><i class="ph ph-youtube-logo"></i></span>
             </li>
-            <li class = "icon tiktok">
-                <span class = "tooltip"></span>
+            <li class="icon tiktok">
+                <span class="tooltip"></span>
                 <span><i class="ph ph-tiktok-logo"></i></span>
             </li>
         </ul>
     </footer>
+
 </body>
 </html>
