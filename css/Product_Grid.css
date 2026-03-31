@@ -128,6 +128,9 @@
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .container_pg::-webkit-scrollbar-thumb:hover {
