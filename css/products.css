@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 
 * {
     margin: 0;
@@ -9,9 +9,6 @@
 
 body {
     background-color: #fdfdff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 .header {
@@ -179,7 +176,6 @@ body {
 
 /* Products Main Content */
 .products-main {
-    flex: 1;
     padding: 40px 20px;
     background-color: #fdfdff;
 }
@@ -285,16 +281,24 @@ body {
     gap: 16px;
     font-family: inherit;
     user-select: none;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: #ffffff;
     border-radius: 12px;
     padding: 0;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+.card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(31, 30, 30);
+    line-height: 1.3;
+    text-decoration: none;
+    font-family:sans-serif;
+}
 
 .product-card:hover {
-    transform: translateY(-8px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -311,11 +315,6 @@ body {
     object-fit: cover;
     border-radius: 12px;
     display: block;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.product-card:hover .card-image {
-    transform: scale(1.05);
 }
 
 .card-actions {
@@ -421,47 +420,4 @@ body {
     font-size: 18px;
     font-weight: 700;
     color: rgb(240, 82, 82);
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .container_pg {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-}
-
-@media (max-width: 992px) {
-    .products-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .sidebar {
-        width: 100%;
-    }
-
-    .container_pg {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .products-main {
-        padding: 20px 15px;
-    }
-
-    .container_pg {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .page-header h1 {
-        font-size: 24px;
-    }
-
-    .filter-section {
-        display: none;
-    }
 }
