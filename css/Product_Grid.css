@@ -42,7 +42,7 @@
     color: rgb(31, 30, 30);
     line-height: 1.3;
     text-decoration: none;
-    font-family:sans-serif ;
+    font-family:sans-serif;
 }
 .author-title {
     text-decoration: none;
@@ -128,6 +128,9 @@
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .container_pg::-webkit-scrollbar-thumb:hover {
