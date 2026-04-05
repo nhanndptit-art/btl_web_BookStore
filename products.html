@@ -6,9 +6,71 @@
     <title>Cửa Hàng Sách - Sản Phẩm</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 
-<body>
+<body> 
+    <header class="header user-select">
+        <div class="header-container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Tìm kiếm sách, tác giả..."><i class="ph ph-magnifying-glass"></i>
+            </div>
+            <div class ="logo">
+                <a href="#" class ="logo-text">StoreHau</a>
+            </div>
+            <div class ="header-items">
+                <a href="#" class="header-action"><i class="ph ph-user"></i></a>
+                <div class = "icon-wrapper">
+                    <a href="#" class="header-action"><i class="ph ph-heart"></i></a><span class="badge">0</span>
+                </div>
+                <div class = "icon-wrapper">
+                    <a href="#" class="header-action"><i class="ph ph-shopping-cart"></i></a><span class="badge">1</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-container-lower">
+            <nav class="nav-lower">
+                <a href="index.html" class="nav-item-header">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Shop <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Best Sellers</a>
+                        <a href="#">New Arrivals</a>
+                        <a href="#">On Sale</a>
+                        <a href="#">computer & tech Books</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Vendor <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Become a Vendor</a>
+                        <a href="#">Vendor Policies</a>
+                        <a href="#">Shipping Guide</a>
+                        <a href="#">Commission Rates</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Pages <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">About Us</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Return & Refund</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Blog <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Book Reviews</a>
+                        <a href="#">Author Interviews</a>
+                        <a href="#">Reading Lists</a>
+                        <a href="#">Literary News</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item-header">Contact</a>
+            </nav>
+        </div>
+    </header>
     <main class="products-main">
         <div class="products-container">
             <!-- Sidebar Filters -->
@@ -477,5 +539,79 @@
             </div>
         </div>
     </main>
+    <footer class= "footer user-select">
+        <div class="footer-container">
+            <div class="footer-letter">
+                <div class="letter-content">
+                    <h3 class="footer-title">Đăng ký nhận ưu đãi mới nhất!</h3>
+                    <p class="letter-desc">Nhập email để nhận thông báo về sách mới và các mã giảm giá hấp dẫn từ StoreHau.</p>
+                </div>
+                <form class="letter-form" action="#">
+                    <input type="email" class="letter-input" placeholder="Nhập email của bạn..." required>
+                    <button type="submit" class="letter-btn">Đăng ký</button>
+                </form>
+            </div>
+            <div class ="footer-links">
+                <nav class= "footer-nav">
+                    <h3 class ="footer-title">Explore</h3>
+                    <ul class ="footer-list">
+                        <li class ="footer-item"><a href ="#" class= "footer-link">About us</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Bookmarks</a></li>
+                        <li class="footer-item"><a href = "#" class = "footer-link">Site Map</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">Account Management</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Help Center</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">products</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Press</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Security</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">Action</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Comedy</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Drama</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Horror</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Slice of Life</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2024 StoreHau. All rights reserved.</p>
+                <ul class ="footer-social">
+                    <li class="footer-social-item">
+                        <a href ="#" class ="footer-icon"><i class = "ph ph-facebook-logo"></i></a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="#" class="footer-icon"><i class="ph ph-github-logo"></i></a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="#" class="footer-icon"><i class="ph ph-instagram-logo"></i></a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="#" class="footer-icon"><i class="ph ph-youtube-logo"></i></a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="#" class="footer-icon"><i class="ph ph-tiktok-logo"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>

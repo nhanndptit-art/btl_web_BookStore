@@ -17,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+    border-bottom: none;
 }
 .search-bar {
     display: flex;
@@ -25,7 +26,8 @@
     padding: 10px 20px;
     border-radius: 30px;
     width: 350px;
-    gap: 20px
+    gap: 20px;
+    user-select: all;
 }
 .search-input{
     border: none;
@@ -90,6 +92,7 @@
     width : 100%;
     margin: 0 auto;
     padding: 0 0 15px 0;
+    background-color: transparent;
 }
 .nav-lower{
     display: flex;
@@ -346,4 +349,7 @@
         gap: 20px;
         text-align: center;
     }
+}
+.user-select {
+    user-select: none;
 }
