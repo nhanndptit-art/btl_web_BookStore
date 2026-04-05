@@ -182,7 +182,6 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 25px;
-    margin-bottom: 0px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .letter-content{
@@ -273,10 +272,6 @@
     font-size: 14px;
     font-weight: 500;
     transition: all var(--transition-fast);
-}
-.footer-item:hover {
-    color: var(--footer-text-primary);
-    transform: translate(0, -5px);
 }
 
 .footer-icon {
