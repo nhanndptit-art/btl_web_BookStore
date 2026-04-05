@@ -5,7 +5,7 @@
 }
 .header {
     width: 100%;
-    background-color: #f5ded3;
+    background-color: #fafaeed6;
     padding-top: 20px;
     border-bottom: 1px solid #f0f0f0;
 }
@@ -155,7 +155,7 @@
 }
 
 :root {
-    --footer-bg: #111111;
+    --footer-bg: #2b2624;
     --footer-text-primary: #888686;
     --footer-text-hover:rgba(252, 252, 252, 0.582);
     --footer-title-color:rgb(255, 255, 255);
