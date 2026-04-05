@@ -1,62 +1,100 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #FBEFEF;
 }
 
 .khung {
-  background: white;
+  background: #FCF8F8;
   padding: 30px;
-  box-shadow: 0 0 5px #D5CDC8;
-  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #D5CDC8;
+  width: 400px;
+  text-align: center;
 }
 
 .khung h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-top: 5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 44px;
+  color: #945757;
 }
+
 
 label {
   display: block;
   margin: 10px 0 5px;
+  text-align: left;
 }
 
 input {
-  width: 85%;
-  padding: 15px;
+  width: 95%;
+  padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
-.nut {
-  width: 95%;
-  padding: 13px;
-  background: #F65D4F;
+.login-btn {
+  width: 90%;
+  padding: 10px;
+  background: #ec8c8c;
   color: white;
+  margin-top: 20px;
   border: none;
   border-radius: 25px;
   font-size: 16px;
   cursor: pointer;
 }
 
-.nut:hover {
-  background: #F4402F;
+.login-btn:hover {
+  background: #f46464;
 }
 
-.links {
-  margin-top: 15px;
+
+.create-account-btn{
+  margin: 3px;
+}
+
+.or{
+  text-align: center;
+  margin: 10px;
+  color: #6b6a6a;
+}
+
+.create-account {
   text-align: center;
 }
 
-.links a {
-  display: block;
-  margin: 5px 0;
-  color: #C8C8C8;
-  cursor: pointer;
+.create-account a{
+  text-decoration: none;
+  color: #5e4885;
+}
+.create-account a:hover{
+  text-decoration: underline;
 }
 
-.links a:hover {
-  color: black;
+.line{
+  margin-top: 30px;
+  margin-bottom: 5px;
+  border: none;
+  border-top: 1px solid #ccc;
 }
-.user-sellect {
+
+.user-select {
     user-select: none; 
+}
+
+.highlight{
+  color: red;
+  font-size: 20px;
 }
