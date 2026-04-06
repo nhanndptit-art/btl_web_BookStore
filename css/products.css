@@ -77,10 +77,10 @@ body {
     accent-color: rgb(193, 126, 2);
 }
 
-.filter-item:hover {
+/* .filter-item:hover {
     color: rgb(193, 126, 2);
     transform: translateX(5px);
-}
+} */
 
 /* Products Content */
 .products-content {
