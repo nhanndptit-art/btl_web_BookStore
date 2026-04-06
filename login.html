@@ -7,21 +7,24 @@
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-  <div class="khung user-sellect">
-    <h1>Login</h1>
-    <form>
+  <div class="khung user-select">
+    <form action="submit">
+      <h1>StoreHau</h1>
+      <div class="form-group">
       <label for="username">Username or email <span class="highlight">*</span></label>
       <input type="text" id="username" placeholder="Username" required>
 
       <label for="password">Password <span class="highlight">*</span></label>
       <input type="password" id="password" placeholder="Password" required>
-
-      <button type="submit" class="nut">LOGIN</button>
-      <div class="links">
-        <a href="#">Create an Account</a>
-        <a href="#">Lost your password?</a>
       </div>
+      <button type="submit" class="login-btn">LOGIN</button>
     </form>
+    <div class="or">or</div>
+    <button class=" login-btn create-account-btn">Create An Account</button>
+    <hr class="line">
+    <div class="create-account">
+      <a href="#">Forgot password?</a>
+    </div>
   </div>
 </body>
 </html>
