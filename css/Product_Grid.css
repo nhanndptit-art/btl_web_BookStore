@@ -153,6 +153,12 @@
     overflow: hidden;
 }
 
+.card-image-wrapper a {
+    display: block;
+    text-decoration: none;
+    z-index: 1;
+}
+
 .card-actions {
     position: absolute;
     bottom: 12px; 
@@ -163,11 +169,14 @@
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease; 
+    pointer-events: none;
+    z-index: 2;
 }
 
 .card-image-wrapper:hover .card-actions {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
 }
 .action-btn {
     width: 32px;
@@ -179,7 +188,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.2s;
 }
 
