@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - StoreHau</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/products_detail.css">
+</head>
+<body>
+    <header class="header user-select">
+        <div class="header-container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Tìm kiếm sách, tác giả..."><i class="ph ph-magnifying-glass"></i>
+            </div>
+            <div class="logo">
+                <a href="index.html" class="logo-text">StoreHau</a>
+            </div>
+            <div class="header-items">
+                <a href="login.html" class="header-action"><i class="ph ph-user"></i></a>
+                <div class="icon-wrapper">
+                    <a href="#" class="header-action"><i class="ph ph-heart"></i></a><span class="badge">0</span>
+                </div>
+                <div class="icon-wrapper">
+                    <a href="#" class="header-action"><i class="ph ph-shopping-cart"></i></a><span class="badge">1</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-container-lower">
+            <nav class="nav-lower">
+                <a href="index.html" class="nav-item-header">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Shop <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="products.html">Best Sellers</a>
+                        <a href="#">New Arrivals</a>
+                        <a href="#">On Sale</a>
+                        <a href="#">computer & tech Books</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Vendor <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Become a Vendor</a>
+                        <a href="#">Vendor Policies</a>
+                        <a href="#">Shipping Guide</a>
+                        <a href="#">Commission Rates</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Pages <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">About Us</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Return & Refund</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-item-header">Blog <i class="ph ph-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Book Reviews</a>
+                        <a href="#">Author Interviews</a>
+                        <a href="#">Reading Lists</a>
+                        <a href="#">Literary News</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item-header">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="detail-page">
+        <section class="detail-hero">
+            <div class="detail-header">
+                <div>
+                    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="products.html">Products</a> / Chi tiết sản phẩm</p>
+                    <h1 class="detail-title">Tên sách hiển thị ở đây</h1>
+                </div>
+                <span class="product-sku">Mã SP: ******</span>
+            </div>
+
+            <div class="detail-grid">
+                <div class="detail-media">
+                    <div class="main-image">
+                        <img src="https://i.pinimg.com/736x/0c/1b/fa/0c1bfa2ae497f7708ba98acfef7ac16b.jpg" alt="Ảnh bìa sách" />
+                    </div>
+                    <div class="thumb-list">
+                        <button class="thumb-item"><img src="https://i.pinimg.com/1200x/bd/58/9e/bd589ebea8d341974cbe5ab71fb85cb4.jpg" alt="Ảnh phụ 1"></button>
+                        <button class="thumb-item"><img src="https://i.pinimg.com/736x/7d/fc/d7/7dfcd72cde540c4f8a4c926a50afe34d.jpg" alt="Ảnh phụ 2"></button>
+                        <button class="thumb-item"><img src="https://i.pinimg.com/736x/a0/a7/8a/a0a78aee4e56b33bf1450102dcfb3475.jpg" alt="Ảnh phụ 3"></button>
+                        <button class="thumb-item"><img src="https://i.pinimg.com/1200x/09/e3/eb/09e3ebd4e429d024e77bd1b599c08a6f.jpg" alt="Ảnh phụ 4"></button>
+                    </div>
+                </div>
+
+                <aside class="detail-summary">
+                    <p class="product-type">Sách | *****</p>
+                    <h2 class="product-name">Tiêu đề sách nổi bật, dễ nhìn</h2>
+                    <p class="product-author">Tác giả: <a href="#">Tên tác giả</a></p>
+
+                    <div class="product-rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-count">(128 đánh giá)</span>
+                    </div>
+
+                    <div class="product-price">
+                        <span class="current-price">$******</span>
+                        <span class="original-price">$******</span>
+                    </div>
+                    <p class="stock-status in-stock">Còn hàng</p>
+
+                    <div class="action-block">
+                        <div class="quantity-control">
+                            <button type="button" class="qty-btn">-</button>
+                            <input type="text" class="qty-input" value="1" readonly>
+                            <button type="button" class="qty-btn">+</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button type="button" class="btn-primary">Thêm vào giỏ hàng</button>
+                            <button type="button" class="btn-wishlist"><i class="ph ph-heart"></i> Yêu thích</button>
+                        </div>
+                    </div>
+
+                    <div class="detail-highlights">
+                        <p><strong>Thể loại:</strong> *****</p>
+                        <p><strong>Ngôn ngữ:</strong> Tiếng Việt</p>
+                        <p><strong>Kích thước:</strong> 14 x 20 cm</p>
+                    </div>
+                </aside>
+
+                <div class="info-card">
+                    <h3>Giới thiệu sách</h3>
+                    <p>******</p>
+                    <p>Đoạn mô tả sẽ nằm ở đây. Bạn có thể thay bằng lời tựa sách, tóm tắt nội dung hoặc review ngắn từ báo chí. Đảm bảo dòng đầu thật rõ ràng để người dùng hiểu ngay giá trị của cuốn sách.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Thông số kỹ thuật</h3>
+                    <table class="spec-table">
+                        <tr>
+                            <td>Nhà xuất bản</td>
+                            <td>******</td>
+                        </tr>
+                        <tr>
+                            <td>Năm xuất bản</td>
+                            <td>******</td>
+                        </tr>
+                        <tr>
+                            <td>Số trang</td>
+                            <td>******</td>
+                        </tr>
+                        <tr>
+                            <td>Kích thước</td>
+                            <td>******</td>
+                        </tr>
+                        <tr>
+                            <td>Loại bìa</td>
+                            <td>******</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer user-select">
+        <div class="footer-container">
+            <div class="footer-letter">
+                <div class="letter-content">
+                    <h3 class="footer-title">Đăng ký nhận ưu đãi mới nhất!</h3>
+                    <p class="letter-desc">Nhập email để nhận thông báo về sách mới và các mã giảm giá hấp dẫn từ StoreHau.</p>
+                </div>
+                <form class="letter-form" action="#">
+                    <input type="email" class="letter-input" placeholder="Nhập email của bạn..." required>
+                    <button type="submit" class="letter-btn">Đăng ký</button>
+                </form>
+            </div>
+            <div class="footer-links">
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Explore</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">About us</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Bookmarks</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Site Map</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">Account Management</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Help Center</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Products</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Press</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Legal</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Cookie Policy</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Security</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-list">
+                        <li class="footer-item"><a href="#" class="footer-link">Action</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Comedy</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Drama</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Horror</a></li>
+                        <li class="footer-item"><a href="#" class="footer-link">Slice of Life</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2024 StoreHau. All rights reserved.</p>
+                <ul class="footer-social">
+                    <li class="footer-social-item"><a href="#" class="footer-icon"><i class="ph ph-facebook-logo"></i></a></li>
+                    <li class="footer-social-item"><a href="#" class="footer-icon"><i class="ph ph-github-logo"></i></a></li>
+                    <li class="footer-social-item"><a href="#" class="footer-icon"><i class="ph ph-instagram-logo"></i></a></li>
+                    <li class="footer-social-item"><a href="#" class="footer-icon"><i class="ph ph-youtube-logo"></i></a></li>
+                    <li class="footer-social-item"><a href="#" class="footer-icon"><i class="ph ph-tiktok-logo"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
