@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 14px;
+    background: #FBEFEF ;
+}
+
+.container_acc{
+    background: #fcf8f8;
+    width: 500px;
+    padding: 25px;
+    margin: 50px auto 0;
+    border-top: 5px solid #F79797;
+    box-shadow: 0 0 15px #D5CDC8;
+    border-radius: 10px;
+}
+
+.container_acc h2{
+    font-size: 30px;
+    margin-top: 5px;
+    line-height: 24px;
+    font-family: 'Pacifico', cursive;
+    padding-bottom: 30px;
+    text-align: center;
+    color: #945757;
+
+}
+
+.input-name{
+    width: 90%;
+    position: relative;
+    margin: 20px auto;
+
+}
+
+.lock{
+    padding: 8px 11px;
+}
+
+.name_acc{
+    width: 45%;
+    padding: 8px 0 8px 40px;
+}
+
+.input-name span{
+    margin-left: 35px;
+}
+
+.text-name{
+    width: 100%;
+    padding: 8px 0 8px 40px;
+}
+
+.input-name i {
+    position: absolute;
+    font-size: 18px;
+    color: #F79797;
+    border-right: 1px solid #cccccc;
+}
+
+.email{
+    padding: 8px;
+}
+
+.name_acc, .text-name{
+    border: 1px solid #cccccc;
+    outline: none;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+
+.name_acc:hover, .text-name:hover{
+    background-color: #fafafa;
+}
+
+.name_acc:focus, .text-name:focus{
+    border: 1px solid #F79797;
+}
+
+.radio-btn{
+    margin-right: 4px;
+}
+
+.country{
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    padding: 0px 15px;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    color: #7b7b7b;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+
+
+.country:hover, .country:focus{
+    color: black;
+    background: #fafafa;
+    border-color: #F79797;
+    outline: none;
+}
+
+
+.country:hover , .country:focus
+{
+    border-top-color: #F79797;
+}
+
+.check{
+    margin-right: 15px;
+    position: relative;
+}
+
+.check::before{
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    vertical-align:-2px;
+    border: 2px solid #cccccc;
+    padding: 2.5px;
+    background-color: transparent;
+    background-clip: content-box;
+    transition: all 0.2s ease;
+}
+
+.check::after{
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    content: "";
+    height: 20px;
+    left: 2px;
+    position: absolute;
+    top: 7px;
+    transform:scale(-1,1) rotate(135deg);
+    transform-origin: left top;
+    width: 7px;
+    display: none;
+}
+
+.check-btn{
+    border: 0;
+    clip:rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+
+.check-btn:hover + .check::before{
+    border-color: #F79797;
+}
+.check-btn:checked +.check::before{
+    border-color: #F46464;
+}
+
+.check-btn:checked +.check::after{
+    -moz-animation: check 0.8s ease 0s running;
+    -webkit-animation: check 0.8s ease 0s running;
+    animation: check 0.8s ease 0s running;
+    display: block;
+    width: 7px;
+    height: 20px;
+    border-color: #F46464;
+}
+
+@-webkit-keyframes check{
+    0%{height: 0; width: 0;}
+    25%{height: 0; width: 7px;}
+    50%{height: 20px; width: 7px;}
+
+}
+
+.btn{
+    background-color: #F79797;
+    color: white;
+    height: 45px;
+    line-height: 35px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.btn:hover{
+    background: #F46464;
+}
+
+@media (max-width: 480px){
+    .container_acc{
+        width: 100%;
+
+        padding:5px;
+    }
+    .input-name{
+        margin-bottom: -10px;
+    }
+    .name_acc{
+        width: 100%;
+        padding: 8px 0 8px 40px;
+        margin-bottom: 10px;
+    }
+    .input-name span{
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-container{
+        border: 2px solid;
+        width: 100%;
+    }
+}
+
