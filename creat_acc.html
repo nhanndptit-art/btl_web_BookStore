@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/create_acc.css">
+    <title>create an account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container_acc">
+        <h2>Create An Account</h2>
+        <div class="form-container">
+            <form>
+                <div class="input-name">
+                    <i class="fa fa-user lock"></i>
+                    <input type="text" name="name_acc" placeholder="First Name" class="name_acc">
+
+                    <span>
+                        <i class="fa fa-user lock"></i>
+                        <input type="text" name="name_acc" placeholder="Last Name" class="name_acc">
+                    </span>
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-envelope email"></i>
+                    <input type="email" name="email_acc" placeholder="Email" required class="text-name">
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-lock lock"></i>
+                    <input type="password" name="password_acc" placeholder="Password" required class="text-name">
+                </div>
+
+                <div class="input-name">
+                    <i class="fa fa-lock lock"></i>
+                    <input type="password" name="Confirm password acc" placeholder="Confirm Password" required class="text-name">
+                </div>
+
+                <div class="input-name">
+                    <input type="radio"  class="radio-btn" name="r1">
+                    <label style="margin-right: 30px;">Male</label>
+
+                    <input type="radio" class="radio-btn" name="r1">
+                    <label>Female</label>
+                </div>
+
+                <div class="input-name">
+                    <select class="country">
+                        <option>Select a country</option>
+                        <option>America</option>
+                        <option>China</option>
+                        <option>Japan</option>
+                        <option>Korea</option>
+                        <option>VietNam</option>
+                    </select>
+                </div>
+
+                <div class="input-name">
+                    <input type="checkbox" name="check-btn_acc" id="cb" class="check-btn">
+                    <label for="cb" class="check">I accept the terms and conditions</label>
+                </div>
+
+                <div class="input-name">
+                    <input type="submit" name="Register" class="btn" value="Register">                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -29,6 +29,23 @@ body {
   color: #945757;
 }
 
+#password, #username{
+    border: 1px solid #cccccc;
+    outline: none;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+}
+
+#password:hover, #username:hover{
+    background-color: #fafafa;
+}
+
+#password:focus, #username:focus{
+    border: 1px solid #F79797;
+}
+
 
 label {
   display: block;
@@ -54,6 +71,14 @@ input {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+}
+
+.create-account-btn{
+  padding:13px
+
 }
 
 .login-btn:hover {
