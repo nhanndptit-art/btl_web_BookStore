@@ -183,7 +183,7 @@
     height: 32px;
     border-radius: 50%; 
     border: none;
-    background-color: white;
+    background-color: rgba(255, 242, 236, 0.315);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -194,4 +194,15 @@
 
 .action-btn:hover {
     background-color: rgb(249, 134, 134);
+}
+.ui-icon {
+    width: 24px;
+    height: 24px; 
+    object-fit: contain; /* Đảm bảo hình không bị méo khi thu nhỏ */
+    vertical-align: middle; /* Căn giữa icon so với text nếu có */
+}
+
+.action-btn:hover .ui-icon {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }
