@@ -7,70 +7,71 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/wishlist.css">
+    <link rel="stylesheet" href="css/toast.css">
 </head>
 
 <body>
 <!-- header -->
-    <header class="header user-select">
-        <div class="header-container">
-            <div class="search-bar">
-                <input type="text" class="search-input" placeholder="Search books, authors..."><i class="ph ph-magnifying-glass"></i>
+<header class="header user-select">
+    <div class="header-container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search books, authors..."><i class="ph ph-magnifying-glass"></i>
+        </div>
+        <div class ="logo">
+            <a href="index.html" class ="logo-text">StoreHau</a>
+        </div>
+        <div class ="header-items">
+            <a href="login.html" class="header-action"><i class="ph ph-user"></i></a>
+            <div class = "icon-wrapper">
+                <a href="wishlist.html" class="header-action"><i class="ph ph-heart"></i></a><span class="badge">0</span>
             </div>
-            <div class ="logo">
-                <a href="index.html" class ="logo-text">StoreHau</a>
-            </div>
-            <div class ="header-items">
-                <a href="login.html" class="header-action"><i class="ph ph-user"></i></a>
-                <div class = "icon-wrapper">
-                    <a href="wishlist.html" class="header-action"><i class="ph ph-heart"></i></a><span class="badge">0</span>
-                </div>
-                <div class = "icon-wrapper">
-                    <a href="cart.html" class="header-action"><i class="ph ph-shopping-cart"></i></a><span class="badge">1</span>
-                </div>
+            <div class = "icon-wrapper">
+                <a href="cart.html" class="header-action"><i class="ph ph-shopping-cart"></i></a><span class="badge">0</span>
             </div>
         </div>
-        <div class="header-container-lower">
-            <nav class="nav-lower">
-                <a href="index.html" class="nav-item-header">Home</a>
-                <div class="dropdown">
-                    <a href="#" class="nav-item-header">Shop <i class="ph ph-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="products.html">Best Sellers</a>
-                        <a href="#">New Arrivals</a>
-                        <a href="#">On Sale</a>
-                        <a href="#">computer & tech Books</a>
-                    </div>
+    </div>
+    <div class="header-container-lower">
+        <nav class="nav-lower">
+            <a href="index.html" class="nav-item-header">Home</a>
+            <div class="dropdown">
+                <a href="#" class="nav-item-header">Shop <i class="ph ph-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="products.html">Best Sellers</a>
+                    <a href="#">New Arrivals</a>
+                    <a href="#">On Sale</a>
+                    <a href="#">computer & tech Books</a>
                 </div>
-                <div class="dropdown">
-                    <a href="#" class="nav-item-header">Vendor <i class="ph ph-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="vendor.html">Become a Vendor</a>
-                        <a href="#">Vendor Policies</a>
-                        <a href="#">Shipping Guide</a>
-                        <a href="#">Commission Rates</a>
-                    </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="nav-item-header">Vendor <i class="ph ph-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="vendor.html">Become a Vendor</a>
+                    <a href="#">Vendor Policies</a>
+                    <a href="#">Shipping Guide</a>
+                    <a href="#">Commission Rates</a>
                 </div>
-                <div class="dropdown">
-                    <a href="#" class="nav-item-header">Pages <i class="ph ph-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="pages.html">About Us</a>
-                        <a href="#">FAQ</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Return & Refund</a>
-                    </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="nav-item-header">Pages <i class="ph ph-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="pages.html">About Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Return & Refund</a>
                 </div>
-                <div class="dropdown">
-                    <a href="#" class="nav-item-header">Blog <i class="ph ph-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="blog.html">Book Reviews</a>
-                        <a href="#">Author Interviews</a>
-                        <a href="#">Reading Lists</a>
-                        <a href="#">Literary News</a>
-                    </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="nav-item-header">Blog <i class="ph ph-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="blog.html">Book Reviews</a>
+                    <a href="#">Author Interviews</a>
+                    <a href="#">Reading Lists</a>
+                    <a href="#">Literary News</a>
                 </div>
-                <a href="contact.html" class="nav-item-header">Contact</a>
-            </nav>
-        </div>
+            </div>
+            <a href="contact.html" class="nav-item-header">Contact</a>
+        </nav>
+    </div>
 </header>
 <main class="content wishlist-page">
         <div class="breadcrumb-container">
@@ -84,195 +85,24 @@
             <h3 class="title_Selling">My Wishlist</h3>
             <div class="divider-line"></div>
         </div>
-        <div class="wishlist-container">
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/ab/19/b5/ab19b5e1cc67e556a8d84b59f2da7e10.jpg" alt="No Place Like Here">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Wuthering Heights</h3>
-                    <p class="item-price">$14.80</p>
-                    <p class="item-date">January 05, 2026</p>
-                </div>
-                <div class="item-actions">
-                    <p class="in-stock"><i class="ph ph-check-circle"></i> 45 in stock (can be backordered)</p>
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/7d/fc/d7/7dfcd72cde540c4f8a4c926a50afe34d.jpg" alt="The Dirty and the Dead">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Protect the Ocean</h3>
-                    <p class="item-price">$37.03</p>
-                    <p class="item-date">December 17, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/1200x/09/e3/eb/09e3ebd4e429d024e77bd1b599c08a6f.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Afforestation</h3>
-                    <p class="item-price">$36.36</p>
-                    <p class="item-date">October 28, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/1200x/bd/58/9e/bd589ebea8d341974cbe5ab71fb85cb4.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Summer</h3>
-                    <p class="item-price">$29.99</p>
-                    <p class="item-date">October 21, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <p class="in-stock"><i class="ph ph-check-circle"></i> 24 in stock (can be backordered)</p>
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/0c/1b/fa/0c1bfa2ae497f7708ba98acfef7ac16b.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">That Year's Sky</h3>
-                    <p class="item-price">$20.29</p>
-                    <p class="item-date">June 30, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <p class="in-stock"><i class="ph ph-check-circle"></i> 16 in stock (can be backordered)</p>
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/a0/a7/8a/a0a78aee4e56b33bf1450102dcfb3475.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">The History</h3>
-                    <p class="item-price">$24.29</p>
-                    <p class="item-date">May 14, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/ec/37/7d/ec377dc3e42b53a33e2ba026fd985ff3.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">The Ivory Comb</h3>
-                    <p class="item-price">$20.29</p>
-                    <p class="item-date">December 08, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/e2/b6/7e/e2b67eec43207a568db4572596affe3c.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Give Me a Ticket to Childhood</h3>
-                    <p class="item-price">$37.03</p>
-                    <p class="item-date">February 03, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/13/ca/6a/13ca6a3addbbbed974ae43b6e5d1797e.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Cold Wind of the Early Season</h3>
-                    <p class="item-price">$31.29</p>
-                    <p class="item-date">September 29, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <p class="in-stock"><i class="ph ph-check-circle"></i> 15 in stock (can be backordered)</p>
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/1200x/72/7d/8e/727d8e28050dabf7779fc083050c0c9e.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">I am Beto</h3>
-                    <p class="item-price">$26.99</p>
-                    <p class="item-date">August 14, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/fd/eb/38/fdeb38d04dd22c793a78a6948d859670.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Two Cats Sitting by the Window</h3>
-                    <p class="item-price">$17.29</p>
-                    <p class="item-date">November 15, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <p class="in-stock"><i class="ph ph-check-circle"></i> 45 in stock (can be backordered)</p>
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/02/a5/31/02a531487ed528376c89d87ae4114f23.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">Please Look After Mom</h3>
-                    <p class="item-price">$22.29</p>
-                    <p class="item-date">October 28, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/736x/1d/86/f8/1d86f89ffde4bd5c6d44ae9c6d80878c.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">The Thorn Fish</h3>
-                    <p class="item-price">$42.29</p>
-                    <p class="item-date">May 17, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
-            <div class="wishlist-item">
-                <div class="item-img">
-                    <img src="https://i.pinimg.com/1200x/97/1e/98/971e9813dfdd73ac5b5ff4fe87b30f65.jpg" alt="Mask of Death">
-                </div>
-                <div class="item-details">
-                    <h3 class="item-title">The Boy in the Striped Pyjamas</h3>
-                    <p class="item-price">$28.29</p>
-                    <p class="item-date">February 18, 2025</p>
-                </div>
-                <div class="item-actions">
-                    <button class="btn-add-cart">Add to cart</button>
-                </div>
-            </div>
+        <div class="wishlist-container" id ="wishlist-container">
+            
         </div>
+        <template id ="wishlist-item-template">
+            <div class ="wishlist-item">
+                <div class ="item-img">
+                    <img src="" alt="" class="wishlist-item-img">
+                </div>
+                <div class ="item-details">
+                    <h3 class="item-title"></h3>
+                    <p class="item-price"></p>
+                </div>
+                <div class ="item-actions">
+                    <button class ="btn-add-cart">Add to Cart</button>
+                    <button class="btn-remove-wishlist">Remove</button>
+                </div>
+            </div>
+        </template>
     </main>
 <footer class= "footer user-select">
         <div class="footer-container">
@@ -347,6 +177,13 @@
             </div>
         </div>
     </footer>
-
+    <div id="toast-box"></div>
+    <script src="js/header,footer.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/view-detail.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
 </body>
+
+
 </html>

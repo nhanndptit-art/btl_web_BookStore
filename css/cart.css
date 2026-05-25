@@ -1,48 +1,48 @@
 .cart{
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
+    margin:40px auto;
+    padding: 0 20px;
     font-family: Arial, sans-serif;
 }
-.cart-top-banner{
-    text-align: center;
+
+.car-top-banner{
+    text-align:center;
     margin-bottom: 30px;
-
 }
-
-.cart-header, .cart-item {
+.cart-header, .cart-item{
     display: flex;
     align-items: center;
-    gap: 20px;
     padding: 15px 0;
+    gap: 20px;
     border-bottom: 1px solid #ddd;
 }
+
 .cart-header {
     font-weight: bold;
     color: #555;
 }
-.col-product{
-    flex: 3;
+.col{
+    flex:3
 }
-
 .col-price, .col-quantity, .col-total{
-    flex: 1;
+    flex:1;
     text-align: center;
 }
 .col-quantity{
     display: flex;
     justify-content: center;
-    flex: 1.5;
+    flex:1.5;
+
 }
 
 .col-action{
-    flex: 0.5;
+    flex:0.5;
     text-align: right;
 }
 
 .item-info{
-    display: flex;
-    gap: 15px;
+    display:flex;
+    gap: 15 px;
 }
 
 .cart-item-img{
@@ -52,21 +52,21 @@
     border-radius: 4px;
 }
 
-.item-details h3{
+.item-details h3 {
     margin: 0 0 5px 0;
     font-size: 16px;
 }
-.item-details p{
+
+.item-details p {
     margin: 3px 0;
     color: #777;
     font-size: 12px;
 }
 
 .color-select {
-    padding:6px;
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
-
 }
 .quantity-stepper {
     display: flex;
@@ -75,13 +75,19 @@
     border-radius: 4px;
     overflow: hidden;
 }
+
 .quantity-stepper button {
     border: none;
     background: #f9f9f9;
     width: 25px;
     cursor: pointer;
+    transition: background 0.2s;
 }
-.quantity-stepper button:hover { background: #eee; }
+
+.quantity-stepper button:hover {
+    background: #eee;
+}
+
 .quantity-stepper input {
     width: 35px;
     text-align: center;
@@ -97,44 +103,108 @@
     background: none;
     cursor: pointer;
     font-size: 12px;
-}
-.btn-remove:hover { text-decoration: underline; }
-.btn-checkout{
-    background: #222;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-weight: bold;
+    transition: color 0.2s;
 }
 
-.btn-checkout:hover {
-    background: #000;
+.btn-remove:hover {
+    text-decoration: underline;
+    color: #d9363e;
 }
 
-.cart-summary-container {
+.cart-summary-container{
     margin-top: 30px;
     display: flex;
     justify-content: flex-end;
 }
-.cart-summary {
-    width: 300px;
-    padding: 20px;
+
+.cart-summary{
+    width: 320px;
+    padding: 25px 0;
+    color: #333;
 }
 
-.sumary-row{
+.summary-title{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top:0;
+    letter-spacing: 0.5px;
+}
+
+.summary-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-size: 15px;
+    font-weight: 600;
+}
+
+.divider-line {
+    height: 2px;
+    background-color: #797373;
+    margin: 20px 0;
 }
 
 .total-row{
+    font-weight:bold;
+    font-size: 18px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.btn-checkout-bottom {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
     font-weight: bold;
     font-size: 18px;
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
-    margin-top: 10px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s;
+}
+
+.btn-checkout-bottom:hover {
+    background-color: #1a1919;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-checkout-bottom:active{
+    transform: scale(0.98);
+}
+
+@media screen and (max-width: 768px){
+    .cart-header{
+        display: none;
+    }
+    .cart-item{
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+    }
+    col-product{
+        width:100%;
+    }
+    .col-attributes, .col-quantity, .col-price, .col-total {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    col-action{
+        position:absolute;
+        top: 15px;
+        right:0;
+    }
+    .cart-summary-container{
+        justify-content: center;
+    }
+    .cart-summary{
+        width: 100%;
+    }
 }

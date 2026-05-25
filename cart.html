@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Shopping Cart - StoreHau</title>
     <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/toast.css">
+    
 </head>
 <body>
     <div id ="header-placeholder"></div>
@@ -18,14 +21,10 @@
                 <li class="current">Shopping Cart</li>
             </ul>
     </div>
-    <div class="cart">
-    <div class="cart-top-banner">
-        <h2>Free shipping and return</h2>
-        <button class="btn-checkout-top"> check out</button>
-    </div>
+    <div class="cart" >
 
     <div class="cart-container">
-        <div class="cart-header">
+        <div class="cart-header" id="cart-header">
             <div class="col-product">Product</div>
             <div class="col-attributes">Attributes</div>
             <div class="col-quantity">Quantity</div>
@@ -38,31 +37,38 @@
             
         </div>
 
-        <div class="cart-summary-container">
+        <div class="cart-summary-container" id="cart-summary-container">
             <div class="cart-summary">
                 <div class="summary-row">
-                    <span>Subtotal</span>
+                    <span>Subtotal:</span>
                     <span id="cart-subtotal">$ 0.00</span>
                 </div>
                 <div class="summary-row">
-                    <span>Shipping</span>
+                    <span>Shipping:</span>
                     <span>Free</span>
                 </div>
                 <div class="summary-row">
-                    <span>VAT</span>
+                    <span>VAT:</span>
                     <span id="cart-vat">$ 0.00</span>
                 </div>
                 <div class="divider-line"></div>
                 <div class="summary-row total-row">
-                    <span>Total</span>
+                    <span>Total:</span>
                     <span id="cart-total">$ 0.00</span>
                 </div>
-                <button class="btn-checkout-bottom">Checkout</button>
+                <button class="btn-checkout-bottom" onclick="checkout()">Checkout</button>
             </div>
         </div>
     </div>
+
+
 </main>
+    <div id="toast-box"></div>
     <div id = "footer-placeholder"></div>
 <script src="js/header,footer.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/view-detail.js"></script>
+<script src="js/cart.js"></script>
+<script src ="js/wishlist.js"></script>
 </body>
-
+</html>

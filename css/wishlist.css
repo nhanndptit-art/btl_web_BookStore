@@ -25,7 +25,7 @@ body, html {
 }
 
 .wishlist-item:nth-child(even) {
-    background-color: #fcfcfc;
+    background-color: #ffffff;
 }
 
 .item-img {
@@ -70,17 +70,9 @@ body, html {
     text-align: left;
 }
 
-.in-stock {
-    color: #27ae60;
-    font-size: 14px;
-    margin: 0 0 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
 
 .btn-add-cart {
-    background-color: #ff5722;
+    background-color: #E28765;
     color: #fff;
     border: none;
     padding: 12px 25px;
@@ -88,11 +80,67 @@ body, html {
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(226, 135, 101, 0.2);
     transition: background-color 0.3s;
 }
 
 .btn-add-cart:hover {
-    background-color: #e64a19;
+    background-color: #CB7453;
+}
+
+.btn-remove-wishlist {
+    background-color: transparent;
+    color: #8993a0;
+    border: 2px solid #E2E8F0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-remove-wishlist:hover {
+    background-color: #FFF5F5;
+    color: #E53E3E;
+    border-color:#FEB2B2;
+    box-shadow: 0 4px 10px rgba(255, 77, 79, 0.3);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.empty-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.empty-desc {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.btn-continue-shopping {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-continue-shopping:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) {
@@ -106,5 +154,8 @@ body, html {
     }
     .item-actions {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 }
