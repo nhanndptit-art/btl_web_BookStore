@@ -162,7 +162,6 @@
     --footer-title-color:rgb(255, 255, 255);
     --transition-fast:0.3s ease;
 }
-
 .footer{
     background-color: var(--footer-bg);
     color: var(--footer-text-primary);

@@ -2,7 +2,6 @@ const img = document.getElementById("scrollImage");
 let hoverOffset = 0; // dịch khi hover
 let scrollOffset = 0; // dịch khi scroll
 
-
 img.parentElement.addEventListener("mouseenter", () => {
   hoverOffset = -5; // dịch lên 5% chiều cao ảnh
   updateTransform();
