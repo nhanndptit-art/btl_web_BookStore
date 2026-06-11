@@ -58,6 +58,49 @@ body {
     gap: 12px;
 }
 
+/* Search Box in Filter */
+.filter-search {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.filter-search:focus {
+    outline: none;
+    border-color: rgb(193, 126, 2);
+    box-shadow: 0 0 4px rgba(193, 126, 2, 0.2);
+}
+
+/* Scrollable Filter List */
+.filter-content.scrollable {
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.filter-content.scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.filter-content.scrollable::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.filter-content.scrollable::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.filter-content.scrollable::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .filter-item {
     display: flex;
     align-items: center;
