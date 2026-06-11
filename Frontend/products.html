@@ -16,55 +16,25 @@
         <div class="products-container">
             <!-- Sidebar Filters -->
             <aside class="sidebar">
+                <!-- Filter by Genre -->
                 <div class="filter-section">
                     <h3 class="filter-title">
-                        <i class="ph ph-funnel"></i> Filter by Category
+                        <i class="ph ph-funnel"></i> Filter by Genre
                     </h3>
-                    <div class="filter-content">
-                        <label class="filter-item">
-                            <input type="checkbox" name="category" value="Fiction"> Fiction
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="category" value="Biography"> Biography
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="category" value="Science"> Science
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="category" value="History"> History
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="category" value="Psychology"> Psychology
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="category" value="Business"> Business
-                        </label>
+                    <input type="text" class="filter-search" id="genre-search" placeholder="Search genres...">
+                    <div class="filter-content scrollable" id="genre-filter-list">
+                        <!-- Genres will be loaded here -->
                     </div>
                 </div>
 
+                <!-- Filter by Author -->
                 <div class="filter-section">
                     <h3 class="filter-title">
                         <i class="ph ph-user"></i> Filter by Author
                     </h3>
-                    <div class="filter-content">
-                        <label class="filter-item">
-                            <input type="checkbox" name="author" value="J.K. Rowling"> J.K. Rowling
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="author" value="George R.R. Martin"> George R.R. Martin
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="author" value="J.R.R. Tolkien"> J.R.R. Tolkien
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="author" value="Stephen King"> Stephen King
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="author" value="Paulo Coelho"> Paulo Coelho
-                        </label>
-                        <label class="filter-item">
-                            <input type="checkbox" name="author" value="Haruki Murakami"> Haruki Murakami
-                        </label>
+                    <input type="text" class="filter-search" id="author-search" placeholder="Search authors...">
+                    <div class="filter-content scrollable" id="author-filter-list">
+                        <!-- Authors will be loaded here -->
                     </div>
                 </div>
             </aside>

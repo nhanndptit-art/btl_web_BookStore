@@ -1,15 +1,176 @@
 const API_URL = 'http://127.0.0.1:8000';
 const ITEMS_PER_PAGE = 20;
+const MAX_VISIBLE_FILTERS = 6;
 
 let currentPage = 1;
 let totalPages = 1;
 let allBooks = [];
+let allAuthors = [];
+let allGenres = [];
+let filteredAuthors = [];
+let filteredGenres = [];
+let selectedAuthors = new Set();
+let selectedGenres = new Set();
 
 // DOM Elements
 const containerPg = document.querySelector('.container_pg');
 const paginationContainer = document.querySelector('.pagination-container');
 const loadingSpinner = document.getElementById('loading-spinner');
 const errorMessage = document.getElementById('error-message');
+const genreSearchInput = document.getElementById('genre-search');
+const authorSearchInput = document.getElementById('author-search');
+const genreFilterList = document.getElementById('genre-filter-list');
+const authorFilterList = document.getElementById('author-filter-list');
+
+/**
+ * Fetch authors từ API
+ */
+async function fetchAuthors() {
+    try {
+        const response = await fetch(`${API_URL}/api/authors`);
+        const result = await response.json();
+        
+        if (result.status === 'success') {
+            allAuthors = result.data;
+            filteredAuthors = [...allAuthors];
+            renderAuthorFilters();
+        }
+    } catch (error) {
+        console.error('Error fetching authors:', error);
+    }
+}
+
+/**
+ * Fetch genres từ API
+ */
+async function fetchGenres() {
+    try {
+        const response = await fetch(`${API_URL}/api/genres`);
+        const result = await response.json();
+        
+        if (result.status === 'success') {
+            allGenres = result.data;
+            filteredGenres = [...allGenres];
+            renderGenreFilters();
+        }
+    } catch (error) {
+        console.error('Error fetching genres:', error);
+    }
+}
+
+/**
+ * Render author filter checkboxes
+ */
+function renderAuthorFilters() {
+    authorFilterList.innerHTML = '';
+    
+    filteredAuthors.slice(0, MAX_VISIBLE_FILTERS).forEach(author => {
+        const label = document.createElement('label');
+        label.className = 'filter-item';
+        label.innerHTML = `
+            <input type="checkbox" value="${author.author_id}" class="author-checkbox">
+            ${author.author_name}
+        `;
+        
+        // Check if already selected
+        const checkbox = label.querySelector('input');
+        if (selectedAuthors.has(author.author_id)) {
+            checkbox.checked = true;
+        }
+        
+        checkbox.addEventListener('change', () => {
+            handleAuthorFilter(author.author_id, checkbox.checked);
+        });
+        
+        authorFilterList.appendChild(label);
+    });
+}
+
+/**
+ * Render genre filter checkboxes
+ */
+function renderGenreFilters() {
+    genreFilterList.innerHTML = '';
+    
+    filteredGenres.slice(0, MAX_VISIBLE_FILTERS).forEach(genre => {
+        const label = document.createElement('label');
+        label.className = 'filter-item';
+        label.innerHTML = `
+            <input type="checkbox" value="${genre.genre_id}" class="genre-checkbox">
+            ${genre.genre_name}
+        `;
+        
+        // Check if already selected
+        const checkbox = label.querySelector('input');
+        if (selectedGenres.has(genre.genre_id)) {
+            checkbox.checked = true;
+        }
+        
+        checkbox.addEventListener('change', () => {
+            handleGenreFilter(genre.genre_id, checkbox.checked);
+        });
+        
+        genreFilterList.appendChild(label);
+    });
+}
+
+/**
+ * Handle author filter change
+ */
+function handleAuthorFilter(authorId, isChecked) {
+    if (isChecked) {
+        selectedAuthors.add(authorId);
+    } else {
+        selectedAuthors.delete(authorId);
+    }
+    
+    // Fetch books với filter mới
+    currentPage = 1;
+    fetchBooks(1);
+}
+
+/**
+ * Handle genre filter change
+ */
+function handleGenreFilter(genreId, isChecked) {
+    if (isChecked) {
+        selectedGenres.add(genreId);
+    } else {
+        selectedGenres.delete(genreId);
+    }
+    
+    // Fetch books với filter mới
+    currentPage = 1;
+    fetchBooks(1);
+}
+
+/**
+ * Search authors by name
+ */
+function searchAuthorsData(searchTerm) {
+    if (!searchTerm) {
+        filteredAuthors = [...allAuthors];
+    } else {
+        filteredAuthors = allAuthors.filter(author =>
+            author.author_name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+    renderAuthorFilters();
+}
+
+/**
+ * Search genres by name
+ */
+function searchGenresData(searchTerm) {
+    if (!searchTerm) {
+        filteredGenres = [...allGenres];
+    } else {
+        filteredGenres = allGenres.filter(genre =>
+            genre.genre_name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+    renderGenreFilters();
+}
 
 /**
  * Fetch books từ API
@@ -20,7 +181,20 @@ async function fetchBooks(page = 1) {
         showLoading(true);
         hideError();
 
-        const response = await fetch(`${API_URL}/api/books?page=${page}&limit=${ITEMS_PER_PAGE}`);
+        // Build query params
+        let url = `${API_URL}/api/books?page=${page}&limit=${ITEMS_PER_PAGE}`;
+        
+        if (selectedAuthors.size > 0) {
+            const authorIds = Array.from(selectedAuthors).join(',');
+            url += `&author_ids=${authorIds}`;
+        }
+        
+        if (selectedGenres.size > 0) {
+            const genreIds = Array.from(selectedGenres).join(',');
+            url += `&genre_ids=${genreIds}`;
+        }
+
+        const response = await fetch(url);
         const result = await response.json();
 
         if (result.status === 'success') {
@@ -119,7 +293,7 @@ function createProductCard(book) {
 /**
  * Render pagination buttons
  */
-function renderPagination(currentPage, totalPages) {
+function renderPagination(currentPageNum, totalPagesNum) {
     if (!paginationContainer) {
         console.warn('Pagination container not found');
         return;
@@ -131,20 +305,20 @@ function renderPagination(currentPage, totalPages) {
     const prevBtn = document.createElement('button');
     prevBtn.textContent = 'Previous';
     prevBtn.className = 'pagination-btn';
-    prevBtn.disabled = currentPage === 1;
+    prevBtn.disabled = currentPageNum === 1;
     prevBtn.onclick = () => {
-        if (currentPage > 1) {
-            fetchBooks(currentPage - 1);
+        if (currentPageNum > 1) {
+            fetchBooks(currentPageNum - 1);
             scrollToTop();
         }
     };
     paginationContainer.appendChild(prevBtn);
 
     // Page numbers
-    for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
+    for (let i = Math.max(1, currentPageNum - 2); i <= Math.min(totalPagesNum, currentPageNum + 2); i++) {
         const pageBtn = document.createElement('button');
         pageBtn.textContent = i;
-        pageBtn.className = i === currentPage ? 'pagination-btn active' : 'pagination-btn';
+        pageBtn.className = i === currentPageNum ? 'pagination-btn active' : 'pagination-btn';
         pageBtn.onclick = () => {
             fetchBooks(i);
             scrollToTop();
@@ -156,10 +330,10 @@ function renderPagination(currentPage, totalPages) {
     const nextBtn = document.createElement('button');
     nextBtn.textContent = 'Next';
     nextBtn.className = 'pagination-btn';
-    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.disabled = currentPageNum === totalPagesNum;
     nextBtn.onclick = () => {
-        if (currentPage < totalPages) {
-            fetchBooks(currentPage + 1);
+        if (currentPageNum < totalPagesNum) {
+            fetchBooks(currentPageNum + 1);
             scrollToTop();
         }
     };
@@ -168,7 +342,7 @@ function renderPagination(currentPage, totalPages) {
     // Page info
     const pageInfo = document.createElement('span');
     pageInfo.className = 'page-info';
-    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    pageInfo.textContent = `Page ${currentPageNum} of ${totalPagesNum}`;
     paginationContainer.appendChild(pageInfo);
 }
 
@@ -259,9 +433,26 @@ function scrollToTop() {
 }
 
 /**
- * Initialize - load products khi page load
+ * Initialize - load data khi page load
  */
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Initializing products page...');
-    fetchBooks(1);
+    
+    // Fetch data
+    Promise.all([fetchAuthors(), fetchGenres()]).then(() => {
+        fetchBooks(1);
+    });
+    
+    // Add search event listeners
+    if (genreSearchInput) {
+        genreSearchInput.addEventListener('input', (e) => {
+            searchGenresData(e.target.value);
+        });
+    }
+    
+    if (authorSearchInput) {
+        authorSearchInput.addEventListener('input', (e) => {
+            searchAuthorsData(e.target.value);
+        });
+    }
 });

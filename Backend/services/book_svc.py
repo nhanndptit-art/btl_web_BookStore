@@ -1,13 +1,15 @@
 import mysql.connector
 
-def get_books_with_pagination(db_connection, page=1, limit=20):
+def get_books_with_pagination(db_connection, page=1, limit=20, author_ids=None, genre_ids=None):
     """
-    Lấy danh sách books với pagination, kèm theo tên tác giả
+    Lấy danh sách books với pagination, kèm theo tên tác giả và thể loại, có filter
     
     Args:
         db_connection: Database connection
         page: Trang cần lấy (mặc định 1)
         limit: Số sản phẩm trên 1 trang (mặc định 20)
+        author_ids: List các author_id để filter (OR logic - nếu có nhiều)
+        genre_ids: List các genre_id để filter (OR logic - nếu có nhiều)
     
     Returns:
         Dict với keys: 'books', 'total', 'page', 'limit', 'total_pages'
@@ -18,8 +20,29 @@ def get_books_with_pagination(db_connection, page=1, limit=20):
         # Tính offset
         offset = (page - 1) * limit
         
-        # Query lấy danh sách books với authors
-        query = """
+        # Build WHERE clause cho filter
+        where_clauses = []
+        params = []
+        
+        # Filter by authors (OR logic)
+        if author_ids and len(author_ids) > 0:
+            placeholders = ','.join(['%s'] * len(author_ids))
+            where_clauses.append(f"ba.author_id IN ({placeholders})")
+            params.extend(author_ids)
+        
+        # Filter by genres (OR logic)
+        if genre_ids and len(genre_ids) > 0:
+            placeholders = ','.join(['%s'] * len(genre_ids))
+            where_clauses.append(f"bg.genre_id IN ({placeholders})")
+            params.extend(genre_ids)
+        
+        # Combine WHERE clauses with AND
+        where_clause = ""
+        if where_clauses:
+            where_clause = "WHERE " + " AND ".join(where_clauses)
+        
+        # Query lấy danh sách books với authors và genres
+        query = f"""
             SELECT 
                 b.book_id,
                 b.book_code,
@@ -28,22 +51,36 @@ def get_books_with_pagination(db_connection, page=1, limit=20):
                 b.cover_img,
                 b.published_date,
                 b.price,
-                GROUP_CONCAT(a.author_name SEPARATOR ', ') as author_names,
-                GROUP_CONCAT(a.author_id SEPARATOR ',') as author_ids
+                GROUP_CONCAT(DISTINCT a.author_name SEPARATOR ', ') as author_names,
+                GROUP_CONCAT(DISTINCT a.author_id SEPARATOR ',') as author_ids,
+                GROUP_CONCAT(DISTINCT g.genre_name SEPARATOR ', ') as genre_names,
+                GROUP_CONCAT(DISTINCT g.genre_id SEPARATOR ',') as genre_ids
             FROM books b
             LEFT JOIN books_authors ba ON b.book_id = ba.book_id
             LEFT JOIN authors a ON ba.author_id = a.author_id
+            LEFT JOIN books_genres bg ON b.book_id = bg.book_id
+            LEFT JOIN genres g ON bg.genre_id = g.genre_id
+            {where_clause}
             GROUP BY b.book_id
             ORDER BY b.book_id DESC
             LIMIT %s OFFSET %s
         """
         
-        cursor.execute(query, (limit, offset))
+        params.extend([limit, offset])
+        cursor.execute(query, params)
         books = cursor.fetchall()
         
-        # Query lấy tổng số books
-        count_query = "SELECT COUNT(DISTINCT b.book_id) as total FROM books b"
-        cursor.execute(count_query)
+        # Query lấy tổng số books (với filter)
+        count_query = f"""
+            SELECT COUNT(DISTINCT b.book_id) as total 
+            FROM books b
+            LEFT JOIN books_authors ba ON b.book_id = ba.book_id
+            LEFT JOIN books_genres bg ON b.book_id = bg.book_id
+            {where_clause}
+        """
+        
+        count_params = params[:-2]  # Remove LIMIT and OFFSET
+        cursor.execute(count_query, count_params)
         total_result = cursor.fetchone()
         total = total_result['total'] if total_result else 0
         
