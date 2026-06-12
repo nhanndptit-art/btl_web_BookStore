@@ -274,7 +274,7 @@ function createProductCard(book) {
         </div>
         <div class="card-content">
             <h3 class="card-title">
-                <a href="products_detail.html?id=${book.book_id}">${book.title}</a>
+                <a href="products_detail.html?id=${book.book_id}" class="book-title-link">${book.title}</a>
             </h3>
             <div class="card-rating">
                 <span class="stars">⭐⭐⭐⭐⭐</span>
