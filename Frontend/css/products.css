@@ -112,6 +112,7 @@ body {
     user-select: none;
 }
 
+
 .filter-item input[type="checkbox"] {
     width: 18px;
     height: 18px;
@@ -167,15 +168,6 @@ body {
     padding: 0;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-.card-title {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 700;
-    color: rgb(31, 30, 30);
-    line-height: 1.3;
-    text-decoration: none;
-    font-family:sans-serif;
 }
 
 .product-card:hover {
@@ -401,3 +393,24 @@ body {
     margin-bottom: 20px;
     text-align: center;
 }
+/* --- PHẦN STYLE CHO TEXT TRONG CARD --- */
+
+.card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    font-family: sans-serif;
+}
+
+/* Style cho thẻ link tiêu đề sách (đã gắn class ở JS) */
+.book-title-link {
+    text-decoration: none; /* Xóa gạch chân mặc định của trình duyệt */
+    color: rgb(31, 30, 30); /* Màu chữ mặc định */
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-title-link:hover {
+    color: rgb(193, 126, 2); /* Đổi màu khi hover */
+}
+
