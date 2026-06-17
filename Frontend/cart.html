@@ -22,7 +22,6 @@
             </ul>
     </div>
     <div class="cart" >
-
     <div class="cart-container">
         <div class="cart-header" id="cart-header">
             <div class="col-product">Product</div>
@@ -34,9 +33,33 @@
         </div>
 
         <div id="cart-items-list">
-            
-        </div>
-
+            </div>
+        <template id="cart-item-template">
+            <div class="cart-item">
+                <div class="col-product">
+                    <img src="" alt="" class="cart-item-img">
+                    <span class="cart-item-name"></span>
+                </div>
+                <div class="col-attributes">Bản cứng</div>
+                <div class="col-quantity">
+                    <button class="btn-qty btn-decrease">-</button>
+                    <span class="cart-item-qty"></span>
+                    <button class="btn-qty btn-increase">+</button>
+                </div>
+                <div class="col-price"></div>
+                <div class="col-total"></div>
+                <div class="col-action">
+                    <button class="btn-remove-cart"><i class="ph ph-trash"></i></button>
+                </div>
+            </div>
+        </template>
+        <template id="cart-empty-template">
+            <div class="empty-state">
+                <h3 class="empty-title">Your cart is empty :3</h3>
+                <p class="empty-desc">You haven't added any products to your cart. Continue shopping to find something you like!</p>
+                <a href="index.html" class="btn-continue-shopping">Continue Shopping</a>
+            </div>
+        </template>
         <div class="cart-summary-container" id="cart-summary-container">
             <div class="cart-summary">
                 <div class="summary-row">
@@ -65,7 +88,7 @@
 </main>
     <div id="toast-box"></div>
     <div id = "footer-placeholder"></div>
-<script src="js/header,footer.js"></script>
+    <script src="js/header,footer.js"></script>
 <script src="js/toast.js"></script>
 <script src="js/view-detail.js"></script>
 <script src="js/cart.js"></script>
