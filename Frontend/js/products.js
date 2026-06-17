@@ -244,6 +244,61 @@ function renderProducts(books) {
 }
 
 /**
+ * Fetch rating cho một cuốn sách
+ */
+async function fetchRating(bookId, ratingElement) {
+    try {
+        const response = await fetch(`${API_URL}/api/reviews/rating/${bookId}`);
+        const result = await response.json();
+        
+        if (result.status === 'success') {
+            const data = result.data;
+            const averageRating = data.average_rating || 0;
+            const totalReviews = data.total_reviews || 0;
+            
+            // Tạo stars động dựa trên rating
+            const stars = generateStars(averageRating);
+            ratingElement.innerHTML = `
+                <span class="stars">${stars}</span>
+                <span class="rating-number">${averageRating.toFixed(1)} (${totalReviews})</span>
+            `;
+        } else {
+            // Nếu không có reviews, hiển thị 0 rating
+            ratingElement.innerHTML = `
+                <span class="stars">☆☆☆☆☆</span>
+                <span class="rating-number">0 (0)</span>
+            `;
+        }
+    } catch (error) {
+        console.error('Error fetching rating:', error);
+        ratingElement.innerHTML = `
+            <span class="stars">☆☆☆☆☆</span>
+            <span class="rating-number">0 (0)</span>
+        `;
+    }
+}
+
+/**
+ * Tạo stars động dựa trên rating value (1-5)
+ */
+function generateStars(rating) {
+    rating = Math.round(rating * 2) / 2; // Round to nearest 0.5
+    let stars = '';
+    
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            stars += '⭐'; // Full star
+        } else if (i - 0.5 <= rating) {
+            stars += '⭐'; // Half star (hiển thị tương tự full star cho đơn giản)
+        } else {
+            stars += '☆'; // Empty star
+        }
+    }
+    
+    return stars;
+}
+
+/**
  * Tạo HTML cho một product card
  */
 function createProductCard(book) {
@@ -278,7 +333,7 @@ function createProductCard(book) {
             </h3>
             <div class="card-rating">
                 <span class="stars">⭐⭐⭐⭐⭐</span>
-                <span class="rating-number">5</span>
+                <span class="rating-number">Loading...</span>
             </div>
             <p class="card-author">
                 <a class="author-title" href="#">${authorNames}</a>
@@ -286,7 +341,11 @@ function createProductCard(book) {
             <p class="card-price">${price}</p>
         </div>
     `;
-
+    
+    // Fetch rating sau khi card được tạo
+    const ratingElement = article.querySelector('.card-rating');
+    fetchRating(book.book_id, ratingElement);
+  
     return article;
 }
 

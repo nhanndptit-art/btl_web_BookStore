@@ -3,6 +3,7 @@ from core.database import get_db
 from services.book_svc import get_all_books_from_db, get_books_with_pagination
 from services.author_svc import get_all_authors, search_authors
 from services.genre_svc import get_all_genres, search_genres
+from services.review_svc import get_reviews_by_book, get_average_rating_by_book, get_all_reviews
 
 router = APIRouter()
 
@@ -79,5 +80,51 @@ def get_genres(search: str = Query(None), db = Depends(get_db)):
         else:
             data = get_all_genres(db)
         return {"status": "success", "data": data}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@router.get("/api/reviews/book/{book_id}")
+def get_book_reviews(book_id: int, db = Depends(get_db)):
+    """
+    Lấy tất cả reviews của một cuốn sách
+    
+    Path parameters:
+    - book_id: ID của cuốn sách
+    """
+    try:
+        reviews = get_reviews_by_book(db, book_id)
+        return {"status": "success", "data": reviews}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@router.get("/api/reviews/rating/{book_id}")
+def get_book_rating(book_id: int, db = Depends(get_db)):
+    """
+    Lấy đánh giá trung bình và số lượng reviews của một cuốn sách
+    
+    Path parameters:
+    - book_id: ID của cuốn sách
+    
+    Returns:
+    - average_rating: Đánh giá trung bình (từ 0 đến 5)
+    - total_reviews: Số lượng reviews
+    """
+    try:
+        rating_data = get_average_rating_by_book(db, book_id)
+        return {"status": "success", "data": rating_data}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+@router.get("/api/reviews")
+def get_all_books_reviews(db = Depends(get_db)):
+    """
+    Lấy tất cả reviews từ database
+    """
+    try:
+        reviews = get_all_reviews(db)
+        return {"status": "success", "data": reviews}
     except Exception as e:
         return {"status": "error", "message": str(e)}
