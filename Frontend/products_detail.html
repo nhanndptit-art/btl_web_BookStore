@@ -15,38 +15,31 @@
         <section class="detail-hero">
             <div class="detail-header">
                 <div>
-                    <p class="breadcrumb"><a href="index.html">Home</a> / Products detail</p>
-                    <h1 class="detail-title">Tên sách hiển thị ở đây</h1>
+                    <p class="breadcrumb"><a href="index.html">Home</a> / <span id="detail-breadcrumb-name">Loading...</span></p>
+                    <h1 class="detail-title" id="detail-title">Đang tải thông tin...</h1>
                 </div>
-                <span class="product-sku">Mã SP: ******</span>
+                <span class="product-sku" id="detail-sku">Mã SP: Loading...</span>
             </div>
 
             <div class="detail-grid">
                 <div class="detail-media">
                     <div class="main-image">
-                        <img src="https://i.pinimg.com/736x/0c/1b/fa/0c1bfa2ae497f7708ba98acfef7ac16b.jpg" alt="Ảnh bìa sách" />
+                        <img id="detail-main-img" src="" alt="Ảnh bìa sách" />
                     </div>
-                    <div class="thumb-list">
-                        <button class="thumb-item"><img src="https://i.pinimg.com/1200x/bd/58/9e/bd589ebea8d341974cbe5ab71fb85cb4.jpg" alt="Ảnh phụ 1"></button>
-                        <button class="thumb-item"><img src="https://i.pinimg.com/736x/7d/fc/d7/7dfcd72cde540c4f8a4c926a50afe34d.jpg" alt="Ảnh phụ 2"></button>
-                        <button class="thumb-item"><img src="https://i.pinimg.com/736x/a0/a7/8a/a0a78aee4e56b33bf1450102dcfb3475.jpg" alt="Ảnh phụ 3"></button>
-                        <button class="thumb-item"><img src="https://i.pinimg.com/1200x/09/e3/eb/09e3ebd4e429d024e77bd1b599c08a6f.jpg" alt="Ảnh phụ 4"></button>
-                    </div>
+                    <div class="thumb-list" id="detail-thumb-list">
+                        </div>
                 </div>
 
                 <aside class="detail-summary">
-                    <p class="product-type">Sách | *****</p>
-                    <h2 class="product-name">Tiêu đề sách nổi bật, dễ nhìn</h2>
-                    <p class="product-author">Tác giả: <a href="#">Tên tác giả</a></p>
+                    <p class="product-type">Sách | <span id="detail-genre-top">...</span></p>
+                    <h2 class="product-name" id="detail-name">Đang tải...</h2>
+                    <p class="product-author">Tác giả: <a href="#" id="detail-author">Loading...</a></p>
 
                     <div class="product-rating">
-                        <span class="stars">⭐⭐⭐⭐⭐</span>
-                        <span class="rating-count">(128 đánh giá)</span>
-                    </div>
+                        </div>
 
                     <div class="product-price">
-                        <span class="current-price">$******</span>
-                        <span class="original-price">$******</span>
+                        <span class="current-price" id="detail-price">$0.00</span>
                     </div>
                     <p class="stock-status in-stock">Còn hàng</p>
 
@@ -62,52 +55,27 @@
                         </div>
                     </div>
 
-                    <div class="detail-highlights">
-                        <p><strong>Thể loại:</strong> *****</p>
-                        <p><strong>Ngôn ngữ:</strong> Tiếng Việt</p>
-                        <p><strong>Kích thước:</strong> 14 x 20 cm</p>
-                    </div>
+                    <div class="detail-highlights" id="detail-highlights">
+                        </div>
                 </aside>
 
                 <div class="info-card">
                     <h3>Giới thiệu sách</h3>
-                    <p>******</p>
-                    <p>Đoạn mô tả sẽ nằm ở đây. Bạn có thể thay bằng lời tựa sách, tóm tắt nội dung hoặc review ngắn từ báo chí. Đảm bảo dòng đầu thật rõ ràng để người dùng hiểu ngay giá trị của cuốn sách.</p>
+                    <p id="detail-description">Đang tải nội dung giới thiệu...</p>
                 </div>
 
                 <div class="info-card">
                     <h3>Thông số kỹ thuật</h3>
-                    <table class="spec-table">
-                        <tr>
-                            <td>Nhà xuất bản</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>Năm xuất bản</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>Số trang</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>Kích thước</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>Loại bìa</td>
-                            <td>******</td>
-                        </tr>
-                    </table>
+                    <table class="spec-table" id="detail-spec-table">
+                        </table>
                 </div>
             </div>
         </section>
-
-
     </main>
 
     <div id="footer-placeholder"></div>
     <script src="js/header,footer.js"></script>
+    <script src="js/products_detail.js"></script>
 
 </body>
 </html>

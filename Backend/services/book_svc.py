@@ -111,3 +111,59 @@ def get_all_books_from_db(db_connection):
     
     cursor.close()
     return books
+def get_book_by_id(db_connection, book_id):
+    """Lấy chi tiết 1 cuốn sách theo ID kèm tất cả thông số kỹ thuật mới"""
+    try:
+        cursor = db_connection.cursor(dictionary=True)
+        
+        query = """
+            SELECT 
+                b.book_id,
+                b.book_code,
+                b.title,
+                b.description,
+                b.cover_img,
+                b.published_date,
+                b.price,
+                b.publisher,
+                b.page_number,
+                b.cover_type,
+                b.size,
+                GROUP_CONCAT(DISTINCT a.author_name SEPARATOR ', ') as author_names,
+                GROUP_CONCAT(DISTINCT a.author_id SEPARATOR ',') as author_ids,
+                GROUP_CONCAT(DISTINCT g.genre_name SEPARATOR ', ') as genre_names,
+                GROUP_CONCAT(DISTINCT g.genre_id SEPARATOR ',') as genre_ids
+            FROM books b
+            LEFT JOIN books_authors ba ON b.book_id = ba.book_id
+            LEFT JOIN authors a ON ba.author_id = a.author_id
+            LEFT JOIN books_genres bg ON b.book_id = bg.book_id
+            LEFT JOIN genres g ON bg.genre_id = g.genre_id
+            WHERE b.book_id = %s
+            GROUP BY b.book_id
+        """
+        
+        cursor.execute(query, (book_id,))
+        book = cursor.fetchone()
+        cursor.close()
+        
+        return book
+    except Exception as e:
+        raise Exception(f"Error fetching book by ID: {str(e)}")
+
+def get_images_by_book(db_connection, book_id):
+    """Lấy danh sách 4 ảnh của sách từ bảng books_img"""
+    try:
+        cursor = db_connection.cursor(dictionary=True)
+        query = """
+            SELECT img_id, book_id, img_url
+            FROM books_img
+            WHERE book_id = %s
+        """
+        cursor.execute(query, (book_id,))
+        images = cursor.fetchall()
+        cursor.close()
+        
+        return images
+    except Exception as e:
+        print(f"Lỗi khi query books_img: {str(e)}")
+        return []

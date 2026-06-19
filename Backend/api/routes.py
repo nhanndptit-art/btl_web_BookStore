@@ -4,8 +4,30 @@ from services.book_svc import get_all_books_from_db, get_books_with_pagination
 from services.author_svc import get_all_authors, search_authors
 from services.genre_svc import get_all_genres, search_genres
 from services.review_svc import get_reviews_by_book, get_average_rating_by_book, get_all_reviews
+from services.book_svc import get_all_books_from_db, get_books_with_pagination, get_book_by_id, get_images_by_book
 
 router = APIRouter()
+
+
+@router.get("/api/books/{book_id}")
+def get_book_detail(book_id: int, db = Depends(get_db)):
+    """Lấy thông tin chi tiết của 1 cuốn sách"""
+    try:
+        book = get_book_by_id(db, book_id)
+        if not book:
+            return {"status": "error", "message": "Book not found"}
+        return {"status": "success", "data": book}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@router.get("/api/books/{book_id}/images")
+def get_book_images(book_id: int, db = Depends(get_db)):
+    """Lấy danh sách hình ảnh của cuốn sách"""
+    try:
+        images = get_images_by_book(db, book_id)
+        return {"status": "success", "data": images}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
 @router.get("/api/books")
 def get_books(
