@@ -207,12 +207,12 @@ async function fetchBooks(page = 1) {
             renderPagination(data.page, data.total_pages);
             showLoading(false);
         } else {
-            showError('Lỗi khi tải dữ liệu: ' + result.message);
+            showError('Error fetching data: ' + result.message);
             showLoading(false);
         }
     } catch (error) {
         console.error('Error fetching books:', error);
-        showError('Không thể kết nối đến server. Vui lòng thử lại sau.');
+        showError('Cannot connect to server. Please try again later.');
         showLoading(false);
     }
 }
@@ -230,7 +230,7 @@ function renderProducts(books) {
     containerPg.innerHTML = '';
 
     if (books.length === 0) {
-        containerPg.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px;">Không tìm thấy sản phẩm</p>';
+        containerPg.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 40px;">No products found</p>';
         return;
     }
 

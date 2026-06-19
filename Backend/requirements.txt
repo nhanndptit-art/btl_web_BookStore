@@ -1,0 +1,5 @@
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install fastapi uvicorn mysql-connector-python
+python -m pip install python-dotenv
+python -m uvicorn main:app --reload
