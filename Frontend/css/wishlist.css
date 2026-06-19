@@ -13,6 +13,7 @@ body, html {
     border: 1px solid #eaeaea;
     border-bottom: none;
     margin-top: 20px;
+    border:none;
 }
 
 .wishlist-item {

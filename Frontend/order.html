@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - StoreHau</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="content order-page">
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">/</li>
+                <li class="current">Order</li>
+            </ul>
+        </div>
+
+        <div class="section-header">
+            <h3 class="title_Selling">My Order</h3>
+            <div class="divider-line"></div>
+        </div>
+
+        <div class="order-container" id="order-container">
+            </div>
+
+        <template id="order-empty-template">
+            <div class="empty-state">
+                <i class="ph ph-receipt" style="font-size: 64px; color: #ccc; margin-bottom: 15px;"></i>
+                <h3 class="empty-title">You have no orders yet :3</h3>
+                <p class="empty-desc">Start shopping to see your order history here!</p>
+                <a href="index.html" class="btn-continue-shopping">Continue Shopping</a>
+            </div>
+        </template>
+
+        <template id="order-card-template">
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-info">
+                        <span class="order-id"></span>
+                        <span class="order-date"></span>
+                    </div>
+                    <div class="order-status badge-processing">Processing</div>
+                </div>
+                <div class="order-items-list">
+                    </div>
+                <div class="order-footer">
+                    <span class="order-total-label">Total:</span>
+                    <span class="order-total-price"></span>
+                </div>
+            </div>
+        </template>
+        <template id="history-item-template">
+            <div class="history-item">
+                <img src="" alt="" class="history-item-img">
+                <div class="history-item-details">
+                    <div class="history-item-name"></div>
+                    <div class="history-item-qty"></div>
+                </div>
+                <div class="history-item-price"></div>
+            </div>
+        </template>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="toast-box"></div>
+    
+    <script src="js/header,footer.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/order.js"></script>
+    <script src ="js/wishlist.js"></script>
+    <script src ="js/cart.js"></script>
+</body>
+</html>

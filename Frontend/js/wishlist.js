@@ -23,6 +23,7 @@ function updateWishlistBadge() {
     let badge =document.getElementById('wishlistBadge') || document.querySelector('.header-action[href="wishlist.html"] ~ .badge');
     if (badge) badge.innerText = wishlist.length;
 }
+
 function displayWishlist(){
     const container = document.getElementById('wishlist-container');
     const template = document.getElementById('wishlist-item-template');
