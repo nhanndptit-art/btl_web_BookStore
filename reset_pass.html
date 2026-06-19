@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset_pass.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Đặt lại mật khẩu</title>
+</head>
+<body>
+    <div class="ResetPassword_container">
+        <h1 id="formTitle">Đặt lại mật khẩu</h1>
+        <div id="ResetPasswordForm">
+            <form action="">
+                <div class="center password-container">
+                    <input id="NewPassword" class="new_pass" type="password" placeholder="Mật khẩu mới">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <div class="center password-container">
+                    <input id="ConfirmNewPassword" class="new_pass" type="password" placeholder="Xác nhận mật khẩu mới">
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+                <div class="center ">
+                    <input class="Submit-Btn" type="submit" value="Đổi mật khẩu" id="PasswordChangeBtn">
+                </div>
+            </form>
+            <p class="center success">
+                Quay lại trang đăng nhập?
+                <a href="login.html">Đăng nhập</a>
+            </p>
+        </div>
+    </div>
+    <script src="js/reset_pass.js"></script>
+</body>
+</html>

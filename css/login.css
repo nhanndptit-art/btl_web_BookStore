@@ -66,10 +66,10 @@ input {
   padding: 13px;
   background: #ec8c8c;
   color: white;
-  margin-top: 30px;
+  margin-top: 20px;
   border: none;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
@@ -122,4 +122,34 @@ input {
 .highlight{
   color: red;
   font-size: 20px;
+}
+
+/* Container bọc ô mật khẩu */
+.password-container {
+  position: relative;
+  width: 95%;
+  margin: 0 auto 15px auto; /* Căn giữa và tạo khoảng cách dưới */
+}
+
+/* Ghi đè lại thuộc tính input riêng cho ô mật khẩu bên trong container */
+.password-container input {
+  width: 100%;       
+  margin-bottom: 0;  
+  padding-right: 40px; 
+}
+
+/* Định vị icon mắt */
+.password-container i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #F79797;
+  transition: color 0.2s;
+  font-size: 18px; 
+}
+
+.password-container i:hover {
+  color: #ec8c8c; /* Đổi màu khi hover giống tone màu nút */
 }
