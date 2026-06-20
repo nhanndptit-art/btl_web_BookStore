@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - StoreHau</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/products_detail.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="detail-page">
+        <section class="detail-hero">
+            <div class="detail-header">
+                <div>
+                    <p class="breadcrumb"><a href="index.html">Home</a> / <span id="detail-breadcrumb-name">Loading...</span></p>
+                    <h1 class="detail-title" id="detail-title">Đang tải thông tin...</h1>
+                </div>
+                <span class="product-sku" id="detail-sku">Mã SP: Loading...</span>
+            </div>
+
+            <div class="detail-grid">
+                <div class="detail-media">
+                    <div class="main-image">
+                        <img id="detail-main-img" src="" alt="Ảnh bìa sách" />
+                    </div>
+                    <div class="thumb-list" id="detail-thumb-list">
+                        </div>
+                </div>
+
+                <aside class="detail-summary">
+                    <p class="product-type">Sách | <span id="detail-genre-top">...</span></p>
+                    <h2 class="product-name" id="detail-name">Đang tải...</h2>
+                    <p class="product-author">Tác giả: <a href="#" id="detail-author">Loading...</a></p>
+
+                    <div class="product-rating">
+                        </div>
+
+                    <div class="product-price">
+                        <span class="current-price" id="detail-price">$0.00</span>
+                    </div>
+                    <p class="stock-status in-stock">Còn hàng</p>
+
+                    <div class="action-block">
+                        <div class="quantity-control">
+                            <button type="button" class="qty-btn">-</button>
+                            <input type="text" class="qty-input" value="1" readonly>
+                            <button type="button" class="qty-btn">+</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button type="button" class="btn-primary">Thêm vào giỏ hàng</button>
+                            <button type="button" class="btn-wishlist"><i class="ph ph-heart"></i> Yêu thích</button>
+                        </div>
+                    </div>
+
+                    <div class="detail-highlights" id="detail-highlights">
+                        </div>
+                </aside>
+
+                <div class="info-card">
+                    <h3>Giới thiệu sách</h3>
+                    <p id="detail-description">Đang tải nội dung giới thiệu...</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Thông số kỹ thuật</h3>
+                    <table class="spec-table" id="detail-spec-table">
+                        </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header,footer.js"></script>
+    <script src="js/products_detail.js"></script>
+
+</body>
+</html>

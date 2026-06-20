@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>Shopping Cart - StoreHau</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/toast.css">
+    
+</head>
+<body>
+    <div id ="header-placeholder"></div>
+<main>
+    <div class="blog-main-content">
+            <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="separator">/</li>
+                <li class="current">Shopping Cart</li>
+            </ul>
+    </div>
+    <div class="cart" >
+    <div class="cart-container">
+        <div class="cart-header" id="cart-header">
+            <div class="col-product">Product</div>
+            <div class="col-attributes">Attributes</div>
+            <div class="col-quantity">Quantity</div>
+            <div class="col-price">Price</div>
+            <div class="col-total">Total</div>
+            <div class="col-action"></div>
+        </div>
+
+        <div id="cart-items-list">
+            </div>
+        <template id="cart-item-template">
+            <div class="cart-item">
+                <div class="col-product">
+                    <img src="" alt="" class="cart-item-img">
+                    <span class="cart-item-name"></span>
+                </div>
+                <div class="col-attributes">Bản cứng</div>
+                <div class="col-quantity">
+                    <button class="btn-qty btn-decrease">-</button>
+                    <span class="cart-item-qty"></span>
+                    <button class="btn-qty btn-increase">+</button>
+                </div>
+                <div class="col-price"></div>
+                <div class="col-total"></div>
+                <div class="col-action">
+                    <button class="btn-remove-cart"><i class="ph ph-trash"></i></button>
+                </div>
+            </div>
+        </template>
+        <template id="cart-empty-template">
+            <div class="empty-state">
+                <h3 class="empty-title">Your cart is empty :3</h3>
+                <p class="empty-desc">You haven't added any products to your cart. Continue shopping to find something you like!</p>
+                <a href="index.html" class="btn-continue-shopping">Continue Shopping</a>
+            </div>
+        </template>
+        <div class="cart-summary-container" id="cart-summary-container">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$ 0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="summary-row">
+                    <span>VAT:</span>
+                    <span id="cart-vat">$ 0.00</span>
+                </div>
+                <div class="divider-line"></div>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span id="cart-total">$ 0.00</span>
+                </div>
+                <button class="btn-checkout-bottom" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+    <div id="toast-box"></div>
+    <div id = "footer-placeholder"></div>
+    <script src="js/header,footer.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/view-detail.js"></script>
+<script src="js/cart.js"></script>
+<script src ="js/wishlist.js"></script>
+</body>
+</html>

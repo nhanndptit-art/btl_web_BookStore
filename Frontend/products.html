@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
+<body> 
+    <div id="header-placeholder"></div>
+
+    <main class="products-main">
+        <div class="products-container">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <!-- Filter by Genre -->
+                <div class="filter-section">
+                    <h3 class="filter-title">
+                        <i class="ph ph-funnel"></i> Filter by Genre
+                    </h3>
+                    <input type="text" class="filter-search" id="genre-search" placeholder="Search genres...">
+                    <div class="filter-content scrollable" id="genre-filter-list">
+                        <!-- Genres will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Filter by Author -->
+                <div class="filter-section">
+                    <h3 class="filter-title">
+                        <i class="ph ph-user"></i> Filter by Author
+                    </h3>
+                    <input type="text" class="filter-search" id="author-search" placeholder="Search authors...">
+                    <div class="filter-content scrollable" id="author-filter-list">
+                        <!-- Authors will be loaded here -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Products Grid -->
+            <div class="products-content">
+                <div class="page-header">
+                    <h1>Store</h1>
+                    <p class="page-subtitle">See everything we have to offer</p>
+                </div>
+
+                <!-- Loading Spinner -->
+                <div id="loading-spinner">
+                    <div></div>
+                    <p>Loading products...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="error-message"></div>
+
+                <!-- Products Container -->
+                <div class="container_pg"></div>
+
+                <!-- Pagination -->
+                <div class="pagination-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header,footer.js"></script>
+    <script src="js/view-detail.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/products.js"></script>
+    <script src ="js/wishlist.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
