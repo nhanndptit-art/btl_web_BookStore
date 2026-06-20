@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #FBEFEF;
+}
+
+.ResetPassword_container {
+    background: #FCF8F8;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #D5CDC8;
+    width: 400px;
+    text-align: center;
+}
+
+#formTitle {
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 45px;
+    color: #945757;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container bọc ô mật khẩu + icon mắt */
+.password-container {
+    position: relative;
+    width: 95%;
+    margin: 0 auto 15px auto;
+}
+
+.new_pass {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    border: 1px solid #cccccc;
+    outline: none;
+    transition: all 0.30s ease-in-out;
+}
+
+.new_pass:hover {
+    background-color: #fafafa;
+}
+
+.new_pass:focus {
+    border: 1px solid #F79797;
+}
+
+/* Icon mắt ẩn/hiện mật khẩu */
+.password-container .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #F79797;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.password-container .toggle-password:hover {
+    color: #ec8c8c;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 12px;
+    width: 95%;
+    margin: -10px auto 10px;
+    text-align: left;
+}
+
+.Submit-Btn {
+    width: 95%;
+    padding: 13px;
+    background: #ec8c8c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.Submit-Btn:hover {
+    background: #f46464;
+}
+
+.success {
+    margin-top: 20px;
+    color: #6b6a6a;
+}
+
+.success a {
+    text-decoration: none;
+    color: #5e4885;
+}
+
+.success a:hover {
+    text-decoration: underline;
+}

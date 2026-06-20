@@ -14,20 +14,24 @@
     <form action="submit">
       <h1>StoreHau</h1>
       <div class="form-group">
-      <label for="username">Username or email <span class="highlight">*</span></label>
-      <input type="text" id="username" placeholder="Username" required>
+      <label for="username">Tên đăng nhập hoặc email <span class="highlight">*</span></label>
+      <input type="text" id="username" placeholder="Tên đăng nhập hoặc email" >
 
-      <label for="password">Password <span class="highlight">*</span></label>
-      <input type="password" id="password" placeholder="Password" required>
+      <label for="password">Mật khẩu <span class="highlight">*</span></label>
+      <div class="password-container">
+        <i class="fa-solid fa-eye" id="togglePassword"></i>
+        <input type="password" id="password" placeholder="Mật khẩu" >
+      </div>     
       </div>
-      <button type="submit" class="login-btn">LOGIN</button>
+      <button type="submit" class="login-btn">Đăng nhập</button>
     </form>
-    <div class="or">or</div>
-    <a href="creat_acc.html" class="login-btn create-account-btn">Create An Account</a>
+    <div class="or">Hoặc</div>
+    <a href="creat_acc.html" class="login-btn create-account-btn">Tạo tài khoản</a>
     <hr class="line">
     <div class="create-account">
-      <a href="forgot_pass.html">Forgot password?</a>
+      <a href="reset_pass.html">Quên mật khẩu?</a>
     </div>
   </div>
+  <script src="js/login.js"></script>
 </body>
 </html>

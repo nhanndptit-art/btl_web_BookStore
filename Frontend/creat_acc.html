@@ -1,71 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/create_acc.css">
-    <title>create an account</title>
+    <title>Tạo tài khoản</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
     <div class="container_acc">
-        <h2>Create An Account</h2>
+        <h2>Tạo Tài Khoản</h2>
         <div class="form-container">
             <form>
                 <div class="input-name">
                     <i class="fa fa-user lock"></i>
-                    <input type="text" name="name_acc" placeholder="First Name" class="name_acc">
-
-                    <span>
-                        <i class="fa fa-user lock"></i>
-                        <input type="text" name="name_acc" placeholder="Last Name" class="name_acc">
-                    </span>
+                    <input type="text" name="name_acc" placeholder="Họ và tên" class="text-name">
                 </div>
 
                 <div class="input-name">
                     <i class="fa fa-envelope email"></i>
-                    <input type="email" name="email_acc" placeholder="Email" required class="text-name">
+                    <input type="email" name="email_acc" placeholder="Email" class="text-name">
                 </div>
 
-                <div class="input-name">
+                <div class="input-name password">
                     <i class="fa fa-lock lock"></i>
-                    <input type="password" name="password_acc" placeholder="Password" required class="text-name">
+                    <input type="password" name="password_acc" placeholder="Mật khẩu" class="text-name">
+                    <i class="fa-solid fa-eye toggle-password"></i> 
                 </div>
 
-                <div class="input-name">
+                <div class="input-name password">
                     <i class="fa fa-lock lock"></i>
-                    <input type="password" name="Confirm password acc" placeholder="Confirm Password" required class="text-name">
+                    <input type="password" name="confirm_password_acc" placeholder="Xác nhận mật khẩu" class="text-name">
+                    <i class="fa-solid fa-eye toggle-password"></i>
                 </div>
 
                 <div class="input-name">
                     <input type="radio"  class="radio-btn" name="r1" >
-                    <label style="margin-right: 30px;">Male</label>
+                    <label style="margin-right: 30px;">Nam</label>
 
                     <input type="radio" class="radio-btn" name="r1">
-                    <label>Female</label>
+                    <label>Nữ</label>
                 </div>
 
                 <div class="input-name">
-                    <select class="country">
-                        <option>Select a country</option>
-                        <option>America</option>
-                        <option>China</option>
-                        <option>Japan</option>
-                        <option>Korea</option>
-                        <option>VietNam</option>
+                    <select class="country" name="country">
+                        <option value="">Chọn quốc gia</option>
+                        <option value="America">Mỹ</option>
+                        <option value="China">Trung Quốc</option>
+                        <option value="Japan">Nhật Bản</option>
+                        <option value="Korea">Hàn Quốc</option>
+                        <option value="VietNam">Việt Nam</option>
                     </select>
                 </div>
 
                 <div class="input-name">
                     <input type="checkbox" name="check-btn_acc" id="cb" class="check-btn">
-                    <label for="cb" class="check">I accept the terms and conditions</label>
+                    <label for="cb" class="check">Tôi đồng ý với các điều khoản và điều kiện</label>
                 </div>
 
                 <div class="input-name">
-                    <input type="submit" name="Register" class="btn" value="Register">                </div>
+                    <input type="submit" name="Register" class="btn" value="Đăng ký">                </div>
             </form>
         </div>
     </div>
+<script src="js/create_acc.js"></script>
 </body>
 </html>
