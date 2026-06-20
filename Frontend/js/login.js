@@ -4,62 +4,79 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = document.getElementById('password');
     const togglePassword = document.getElementById('togglePassword');
 
+    if (!form || !username || !password) return;
+
     // Tạo thẻ hiển thị lỗi cho từng input
-    function createErrorTag(afterEl) {
+    function createErrorTag(input) {
+        if (!input) return null;
         const error = document.createElement('div');
         error.className = 'error-message';
         error.style.color = '#e74c3c';
         error.style.fontSize = '12px';
         error.style.margin = '-10px 0 10px';
         error.style.textAlign = 'left';
-        afterEl.insertAdjacentElement('afterend', error);
+        input.insertAdjacentElement('afterend', error);
         return error;
     }
 
     const usernameError = createErrorTag(username);
-    // Mật khẩu nằm trong .password-container nên chèn lỗi sau cả container
-    const passwordError = createErrorTag(password.closest('.password-container'));
+    
+    const passwordContainer = password.closest('.password-container') || password;
+    const passwordError = createErrorTag(passwordContainer);
 
     function showError(el, msg) {
-        el.textContent = msg;
+        if (el) el.textContent = msg;
     }
 
     function clearError(el) {
-        el.textContent = '';
+        if (el) el.textContent = '';
     }
 
+    function validateField(input) {
+        if (input === username) {
+            if (username.value.trim() === '') {
+                showError(usernameError, 'Vui lòng nhập tên đăng nhập hoặc email.');
+                return false;
+            } else {
+                clearError(usernameError);
+            }
+        }
+
+        if (input === password) {
+            if (password.value === '') {
+                showError(passwordError, 'Vui lòng nhập mật khẩu.');
+                return false;
+            } else {
+                clearError(passwordError);
+            }
+        }
+        return true;
+    }
+
+    // Hàm validate toàn bộ form khi submit
     function validateForm() {
         let isValid = true;
+        const inputs = [username, password];
 
-        // Tên đăng nhập hoặc email
-        if (username.value.trim() === '') {
-            showError(usernameError, 'Vui lòng nhập tên đăng nhập hoặc email.');
-            isValid = false;
-        } else {
-            clearError(usernameError);
+        for (const input of inputs) {
+            if (!validateField(input)) {
+                isValid = false;
+            }
         }
-
-        // Mật khẩu
-        if (password.value === '') {
-            showError(passwordError, 'Vui lòng nhập mật khẩu.');
-            isValid = false;
-        } else {
-            clearError(passwordError);
-        }
-
         return isValid;
     }
 
-    // Validate realtime khi rời khỏi input (blur)
-    [username, password].forEach(input => {
-        input.addEventListener('blur', validateForm);
-    });
+    const inputs = [username, password];
+    for (const input of inputs) {
+        input.addEventListener('blur', () => {
+            validateField(input); // Chỉ validate riêng ô vừa rời khỏi, không ảnh hưởng ô khác
+        });
+    }
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         if (validateForm()) {
-            // TODO: thay đoạn này bằng gọi API đăng nhập thực tế
             alert('Đăng nhập thành công!');
         }
     });
