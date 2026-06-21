@@ -1,45 +1,28 @@
-.hero-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;       /* chiều cao cố định của banner */
-    overflow: hidden;     /* chặn animation tràn ra ngoài */
-    margin-top: 5px;     /* khoảng cách với header phía trên */
-}
-
 .background-image {
     background-image: url('../../assets/logo.webp');
     background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;   /* để nằm hẳn trong wrapper, không đẩy layout */
-    inset: 0;              /* full kích thước wrapper */
-    width: 100%;
-    height: 100%;
-    animation: kenburns 19s ease-in-out infinite alternate;
-    transform-origin: center;  /* giữ ảnh ở trung tâm khi scale */
-}
-
-@keyframes kenburns {
-  from { transform: scale(1); }
-  to   { transform: scale(1.1); }
+    width: 100%;           
+    height: 100vh;    
+    overflow: hidden;    
+    background-size: contain; 
 }
 
 table {
-  position: absolute;   /* giữ nguyên, nhưng giờ định vị theo .hero-wrapper */
-  top: 150px;
-  right: 100px;
+  position: absolute;   /* cho phép đè lên */
+  top: 350px;             
+  right: 100px;            
   text-align: center;
   padding: 10px;
   width: 500px;
+ 
   font-size: 25px;
   text-transform: uppercase;
-  font-family: Arial, Helvetica, sans-serif;
-  z-index: 5; /* đảm bảo nổi trên ảnh nền */
-}
+  font-family: Arial, Helvetica, sans-serif; /* font chữ */
 
+}
 table th, table td {
   padding: 10px 20px;
 }
-
 #dong_1{
     color: #AAA8A7;
     font-size: small;
@@ -51,57 +34,26 @@ table th, table td {
 #dong_3{
     color: #F65D4E;
     font-size: 15px;
+    
 }
 
 .dang-ky {
-  background-color: white;
-  color:#000000;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.4s ease, color 0.4s ease;
-  text-decoration: none;
-  display: inline-block;
-}
+      background-color: white;   /* màu nền */
+      color:#000000;               /* chữ màu trắng */
+      padding: 10px 20px;         /* khoảng cách trong nút */
+      border: none;               /* bỏ viền mặc định */
+      border-radius: 20px;         /* bo góc */
+      font-size: 20px;
+      cursor: pointer;            /* đổi con trỏ khi hover */
+      transition: 0.8s;           /* hiệu ứng mượt khi hover */
+    }
 
-.dang-ky:hover {
-  background-color: #000000;
-  color: white;
-}
+    .dang-ky:hover {
+      background-color: #000000;  /* đổi màu khi hover */
+      color: white;
+    }
 
-
-/* Mặc định ẩn, JS sẽ thêm class "show" để chạy animation theo thứ tự */
-.anim-item {
-  opacity: 0;
+*{
+    margin: 0;
+    padding: 0;
 }
-
-#dong_1.show {
-  animation: dropIn3D 0.2s 1s forwards;
-}
-@keyframes dropIn3D {
-  0%   { opacity:0; transform: rotateX(70deg) translateY(-15px); }
-  100% { opacity:1; transform: rotateX(0) translateY(0); }
-}
-
-#dong_2.show {
-  animation: slideFromLeft 1s 1s forwards;
-}
-@keyframes slideFromLeft {
-  0%   { opacity:0; transform: translateX(-60px); }
-  100% { opacity:1; transform: translateX(0); }
-}
-
-#dong_3.show {
-  animation: slideFromBottom 1.2s 0.8s forwards;
-}
-
-.btn-row.show {
-  animation: slideFromBottom 1.7s 0.8s forwards;
-}
-@keyframes slideFromBottom {
-  0%   { opacity:0; transform: translateY(25px); }
-  100% { opacity:1; transform: translateY(0); }
-}
-
