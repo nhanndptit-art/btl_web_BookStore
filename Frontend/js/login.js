@@ -28,32 +28,36 @@ document.addEventListener('DOMContentLoaded', () => {
         el.textContent = '';
     }
 
+    function validateUsername() {
+        if (username.value.trim() === '') {
+            showError(usernameError, 'Vui lòng nhập tên đăng nhập hoặc email.');
+            return false;
+        }
+        clearError(usernameError);
+        return true;
+    }
+
+    function validatePassword() {
+        if (password.value === '') {
+            showError(passwordError, 'Vui lòng nhập mật khẩu.');
+            return false;
+        }
+        clearError(passwordError);
+        return true;
+    }
+
     function validateForm() {
         let isValid = true;
 
-        // Kiểm tra tên đăng nhập hoặc email
-        if (username.value.trim() === '') {
-            showError(usernameError, 'Vui lòng nhập tên đăng nhập hoặc email.');
-            isValid = false;
-        } else {
-            clearError(usernameError);
-        }
-
-        // Kiểm tra mật khẩu
-        if (password.value === '') {
-            showError(passwordError, 'Vui lòng nhập mật khẩu.');
-            isValid = false;
-        } else {
-            clearError(passwordError);
-        }
+        if (!validateUsername()) isValid = false;
+        if (!validatePassword()) isValid = false;
 
         return isValid;
     }
 
-    // Validate realtime khi rời khỏi input (blur)
-    [username, password].forEach(input => {
-        input.addEventListener('blur', validateForm);
-    });
+    // Validate realtime khi rời khỏi input (blur) cho từng trường tương ứng
+    username.addEventListener('blur', validateUsername);
+    password.addEventListener('blur', validatePassword);
 
     // Xử lý sự kiện Submit Form và gọi API
     form.addEventListener('submit', (e) => {

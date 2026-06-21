@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = document.querySelector('input[name="email_acc"]');
     const password = document.querySelector('input[name="password_acc"]');
     const confirmPassword = document.querySelector('input[name="confirm_password_acc"]');
-    const genderRadios = document.querySelectorAll('input[name="r1"]');
     const country = document.querySelector('.country');
     const checkTerms = document.querySelector('.check-btn');
 
@@ -36,43 +35,52 @@ document.addEventListener('DOMContentLoaded', () => {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     }
 
+    function validateFullName() {
+        if (fullName.value.trim() === '') {
+            showError(fullNameError, 'Vui lòng nhập họ và tên.');
+            return false;
+        }
+        clearError(fullNameError);
+        return true;
+    }
+
+    function validateEmailField() {
+        if (email.value.trim() === '') {
+            showError(emailError, 'Vui lòng nhập email.');
+            return false;
+        } else if (!checkEmail(email.value.trim())) {
+            showError(emailError, 'Email không hợp lệ.');
+            return false;
+        }
+        clearError(emailError);
+        return true;
+    }
+
+    function validatePasswordField() {
+        if (password.value.length < 8) {
+            showError(passwordError, 'Mật khẩu phải chứa ít nhất 8 ký tự.');
+            return false;
+        }
+        clearError(passwordError);
+        return true;
+    }
+
+    function validateConfirmPasswordField() {
+        if (confirmPassword.value !== password.value || confirmPassword.value === '') {
+            showError(confirmPasswordError, 'Xác nhận mật khẩu không đúng.');
+            return false;
+        }
+        clearError(confirmPasswordError);
+        return true;
+    }
+
     function validateForm() {
         let isValid = true;
 
-        // Họ và tên
-        if (fullName.value.trim() === '') {
-            showError(fullNameError, 'Vui lòng nhập họ và tên.');
-            isValid = false;
-        } else {
-            clearError(fullNameError);
-        }
-
-        // Email
-        if (email.value.trim() === '') {
-            showError(emailError, 'Vui lòng nhập email.');
-            isValid = false;
-        } else if (!checkEmail(email.value.trim())) {
-            showError(emailError, 'Email không hợp lệ.');
-            isValid = false;
-        } else {
-            clearError(emailError);
-        }
-
-        // Mật khẩu
-        if (password.value.length < 8) {
-            showError(passwordError, 'Mật khẩu phải chứa ít nhất 8 ký tự.');
-            isValid = false;
-        } else {
-            clearError(passwordError);
-        }
-
-        // Xác nhận mật khẩu
-        if (confirmPassword.value !== password.value || confirmPassword.value === '') {
-            showError(confirmPasswordError, 'Xác nhận mật khẩu không đúng.');
-            isValid = false;
-        } else {
-            clearError(confirmPasswordError);
-        }
+        if (!validateFullName()) isValid = false;
+        if (!validateEmailField()) isValid = false;
+        if (!validatePasswordField()) isValid = false;
+        if (!validateConfirmPasswordField()) isValid = false;
 
         // Quốc gia
         if (country.selectedIndex === 0) {
@@ -89,10 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     }
 
-    // Validate realtime khi rời khỏi input (blur)
-    [fullName, email, password, confirmPassword].forEach(input => {
-        input.addEventListener('blur', validateForm);
+    // Validate realtime khi rời khỏi input (blur) cho từng trường tương ứng
+    fullName.addEventListener('blur', validateFullName);
+    email.addEventListener('blur', validateEmailField);
+    password.addEventListener('blur', () => {
+        validatePasswordField();
+        if (confirmPassword.value !== '') {
+            validateConfirmPasswordField();
+        }
     });
+    confirmPassword.addEventListener('blur', validateConfirmPasswordField);
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
