@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function validateForm() {
         let isValid = true;
 
-        // Tên đăng nhập hoặc email
+        // Kiểm tra tên đăng nhập hoặc email
         if (username.value.trim() === '') {
             showError(usernameError, 'Vui lòng nhập tên đăng nhập hoặc email.');
             isValid = false;
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clearError(usernameError);
         }
 
-        // Mật khẩu
+        // Kiểm tra mật khẩu
         if (password.value === '') {
             showError(passwordError, 'Vui lòng nhập mật khẩu.');
             isValid = false;
@@ -55,12 +55,57 @@ document.addEventListener('DOMContentLoaded', () => {
         input.addEventListener('blur', validateForm);
     });
 
+    // Xử lý sự kiện Submit Form và gọi API
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         if (validateForm()) {
-            // TODO: thay đoạn này bằng gọi API đăng nhập thực tế
-            alert('Đăng nhập thành công!');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Kích hoạt trạng thái chờ để tối ưu UX
+            submitBtn.textContent = 'Đang xử lý...';
+            submitBtn.disabled = true;
+            clearError(passwordError); // Xóa lỗi cũ nếu có
+
+            // Gửi dữ liệu đăng nhập lên API Backend FastAPI
+            fetch('http://localhost:8000/login', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username_or_email: username.value.trim(),
+                    password: password.value
+                })
+            })
+            .then(async (response) => {
+                const data = await response.json();
+                if (!response.ok) {
+                    // Lấy lỗi trả về từ HTTPException của FastAPI
+                    throw new Error(data.detail || 'Đăng nhập không thành công');
+                }
+                return data;
+            })
+            .then((res) => {
+                // Hiển thị thông báo thành công
+                alert(`Đăng nhập thành công! Chào mừng ${res.user.username}`);
+                
+                // ĐÃ MỞ COMMENT: Lưu user info vào localStorage để dùng cho các trang khác
+                localStorage.setItem('currentUser', JSON.stringify(res.user));
+                
+                // Chuyển hướng về trang chủ
+                window.location.href = 'index.html'; 
+            })
+            .catch((error) => {
+                // Hiển thị lỗi (sai pass, không tồn tại user...) ngay dưới ô mật khẩu
+                showError(passwordError, error.message);
+            })
+            .finally(() => {
+                // Phục hồi lại trạng thái nút bấm
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
         }
     });
 
