@@ -16,18 +16,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     playHeroIntro();
 
-    setInterval(() => {
-        for (const item of items) {
-            item.style.transition = 'opacity 0.6s ease';
-            item.style.opacity = 0;
-        }
-
-        setTimeout(() => {
-            for (const item of items) {
-                item.style.transition = '';
-                item.style.opacity = '';
-            }
-            playHeroIntro();
-        }, 700);
-    }, 9000);
 });
