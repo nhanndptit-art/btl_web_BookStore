@@ -316,7 +316,7 @@ function createProductCard(book) {
                 <img src="${coverImg}" alt="${book.title}" class="card-image" onerror="this.src='https://via.placeholder.com/300x400?text=No+Image'">
             </a>
             <div class="card-actions">
-                <button class="action-btn wishlist-btn" title="Add to wishlist">
+                <button class="action-btn wishlist-btn" title="Add to wishlist" data-book-id="${book.book_id}">
                     <img class="ui-icon" src="../assets/icon/heart.png" alt="favorite">
                 </button>
                 <button class="action-btn view-detail-btn" title="View detail" data-book-id="${book.book_id}">
@@ -405,6 +405,7 @@ function renderPagination(currentPageNum, totalPagesNum) {
     paginationContainer.appendChild(pageInfo);
 }
 
+
 /**
  * Attach event listeners to action buttons
  */
@@ -418,12 +419,31 @@ function attachActionButtonListeners() {
         });
     });
 
+    // Helper function để format book từ API thành product object cho cart/wishlist
+    const getProductObject = (bookId) => {
+        // Tìm book trong mảng allBooks dựa vào ID
+        const book = allBooks.find(b => String(b.book_id) === String(bookId));
+        if (!book) return null;
+        
+        // Trả về format object mà cart.js và wishlist.js đang cần
+        return {
+            id: book.book_id,
+            name: book.title,
+            price: parseFloat(book.price) || 0,
+            image: book.cover_img || 'https://via.placeholder.com/300x400?text=No+Image'
+        };
+    };
+
     // Add to cart buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const bookId = btn.getAttribute('data-book-id');
-            addToCart(bookId);
+            const product = getProductObject(bookId);
+            
+            if (product) {
+                addToCart(product); // Gọi hàm thật bên cart.js
+            }
         });
     });
 
@@ -431,27 +451,18 @@ function attachActionButtonListeners() {
     document.querySelectorAll('.wishlist-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            addToWishlist(btn);
+            const bookId = btn.getAttribute('data-book-id');
+            const product = getProductObject(bookId);
+            
+            if (product) {
+                btn.classList.add('active'); // Hiệu ứng UI nếu cần
+                addToWishlist(product); // Gọi hàm thật bên wishlist.js
+            }
         });
     });
 }
 
-/**
- * Add to cart (placeholder - chưa phát triển)
- */
-function addToCart(bookId) {
-    console.log('Add to cart:', bookId);
-    // TODO: Implement add to cart logic
-}
 
-/**
- * Add to wishlist (placeholder - chưa phát triển)
- */
-function addToWishlist(btn) {
-    btn.classList.toggle('active');
-    console.log('Wishlist toggled');
-    // TODO: Implement wishlist logic
-}
 
 /**
  * Show/hide loading spinner

@@ -1,12 +1,16 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function addToCart(product) {
+// Thay đổi tham số, thêm tham số quantityToAdd mặc định là 1
+function addToCart(product, quantityToAdd = 1) {
     const existingItem = cart.find(item => item.id === product.id);
     if (existingItem) {
-        existingItem.quantity += 1;
+        // Cộng dồn với số lượng truyền vào
+        existingItem.quantity += quantityToAdd; 
     } else {
-        cart.push({ ...product, quantity: 1 });
+        // Gán số lượng mới
+        cart.push({ ...product, quantity: quantityToAdd });
     }
+    
     localStorage.setItem('cart', JSON.stringify(cart));
     if(window.showToast) window.showToast(`${product.name} has been added to the cart!`, 'success');
     updateCartBadge();

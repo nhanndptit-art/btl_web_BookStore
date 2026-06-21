@@ -153,4 +153,83 @@ function generateStars(rating) {
         }
     }
     return stars;
+}// ==========================================
+// LOGIC CHO GIỎ HÀNG VÀ WISHLIST TRÊN TRANG CHI TIẾT
+// ==========================================
+
+// Biến toàn cục để lưu thông tin sản phẩm đang xem
+let currentProduct = {
+    id: null,
+    name: '',
+    price: 0,
+    image: 'https://via.placeholder.com/300x400?text=No+Image'
+};
+
+// 1. Hook vào hàm renderBookDetail (chạy ngầm sau khi lấy data)
+const originalRenderBookDetail = renderBookDetail;
+renderBookDetail = function(book) {
+    originalRenderBookDetail(book);
+    // Cập nhật thông tin cơ bản vào object currentProduct
+    currentProduct.id = book.book_id;
+    currentProduct.name = book.title;
+    currentProduct.price = parseFloat(book.price) || 0;
+};
+
+// 2. Hook vào hàm renderBookImages (để lấy ảnh chính xác cho giỏ hàng)
+const originalRenderBookImages = renderBookImages;
+renderBookImages = function(images) {
+    originalRenderBookImages(images);
+    if (images && images.length > 0) {
+        currentProduct.image = images[0].img_url;
+    }
+};
+
+// 3. Thiết lập các nút bấm số lượng và hành động
+document.addEventListener('DOMContentLoaded', () => {
+    // Đợi một chút để HTML render xong (do dùng Promise ở trên)
+    setTimeout(setupInteractions, 500); 
+});
+
+function setupInteractions() {
+    const qtyInput = document.querySelector('.qty-input');
+    const btnMinus = document.querySelector('.qty-btn:first-child'); // Nút -
+    const btnPlus = document.querySelector('.qty-btn:last-child'); // Nút +
+    
+    const btnAddToCart = document.querySelector('.btn-primary'); // Nút Thêm vào giỏ
+    const btnWishlist = document.querySelector('.btn-wishlist'); // Nút Yêu thích
+
+    // Logic tăng giảm số lượng
+    if (btnMinus && btnPlus && qtyInput) {
+        btnMinus.addEventListener('click', () => {
+            let qty = parseInt(qtyInput.value) || 1;
+            if (qty > 1) qtyInput.value = qty - 1;
+        });
+
+        btnPlus.addEventListener('click', () => {
+            let qty = parseInt(qtyInput.value) || 1;
+            qtyInput.value = qty + 1;
+        });
+    }
+
+    // Nút Add to Cart
+    if (btnAddToCart) {
+        btnAddToCart.addEventListener('click', () => {
+            if (!currentProduct.id) return; // Nếu API chưa load xong thì không cho bấm
+            
+            const selectedQty = parseInt(qtyInput ? qtyInput.value : 1) || 1;
+            
+            // Gọi hàm bên cart.js, truyền thêm số lượng
+            addToCart(currentProduct, selectedQty);
+        });
+    }
+
+    // Nút Wishlist
+    if (btnWishlist) {
+        btnWishlist.addEventListener('click', () => {
+            if (!currentProduct.id) return;
+            
+            // Gọi hàm bên wishlist.js
+            addToWishlist(currentProduct);
+        });
+    }
 }
