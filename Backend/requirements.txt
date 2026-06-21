@@ -1,5 +1,11 @@
+# 1. Tạo môi trường ảo
 python -m venv .venv
+
+# 2. Kích hoạt môi trường (Dành cho Windows)
 .\.venv\Scripts\activate
-pip install fastapi uvicorn mysql-connector-python
-python -m pip install python-dotenv
+
+# 3. Cài đặt toàn bộ thư viện (Đã gộp chung và chốt version bcrypt)
+pip install fastapi uvicorn mysql-connector-python python-dotenv pydantic passlib bcrypt==4.0.1
+
+# 4. Khởi chạy Web Server
 python -m uvicorn main:app --reload
