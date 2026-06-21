@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản cá nhân - Book Store</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/account.css"> </head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="account-container" style="max-width: 600px; margin: 50px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h2 style="text-align: center; margin-bottom: 20px;">Hồ Sơ Của Tôi</h2>
+        
+        <div class="profile-info" style="line-height: 2; font-size: 16px;">
+            <p><strong>Mã tài khoản:</strong> <span id="acc-id"></span></p>
+            <p><strong>Tên người dùng:</strong> <span id="acc-username"></span></p>
+            <p><strong>Email:</strong> <span id="acc-email"></span></p>
+            <p><strong>Số điện thoại:</strong> <span id="acc-phone"></span></p>
+            <p><strong>Vai trò:</strong> <span id="acc-role" style="text-transform: capitalize;"></span></p>
+            <p><strong>Ngày tạo:</strong> <span id="acc-created"></span></p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <button id="logout-btn" style="background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                Đăng xuất
+            </button>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/header,footer.js"></script>
+    <script src="js/account.js"></script>
+</body>
+</html>

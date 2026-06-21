@@ -5,6 +5,9 @@ from services.author_svc import get_all_authors, search_authors
 from services.genre_svc import get_all_genres, search_genres
 from services.review_svc import get_reviews_by_book, get_average_rating_by_book, get_all_reviews
 from services.book_svc import get_all_books_from_db, get_books_with_pagination, get_book_by_id, get_images_by_book
+from fastapi import APIRouter, HTTPException, status
+from models.user import UserLogin
+from services.user_svc import authenticate_user
 
 router = APIRouter()
 
@@ -150,3 +153,18 @@ def get_all_books_reviews(db = Depends(get_db)):
         return {"status": "success", "data": reviews}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+    
+
+
+@router.post("/login")
+def login(payload: UserLogin):
+    result = authenticate_user(payload.username_or_email, payload.password)
+    
+    if not result["success"]:
+        # Trả về status code 401 kèm thông điệp lỗi cụ thể từ tầng service
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=result["message"]
+        )
+        
+    return {"message": "Đăng nhập thành công", "user": result["user"]}
